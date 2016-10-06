@@ -1,5 +1,6 @@
 @import 'settings.colors';
 
 .header {
-  color: $scheme-light-foreground;
+  background: $scheme-dark-background;
+  color: $scheme-dark-foreground;
 }
