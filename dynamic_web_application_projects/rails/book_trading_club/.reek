@@ -1,0 +1,8 @@
+---
+IrresponsibleModule:
+  exclude:
+  - ApplicationCable::Channel
+  - ApplicationCable::Connection
+  - ApplicationHelper
+  - ApplicationJob
+  - BookTradingClub::Application
