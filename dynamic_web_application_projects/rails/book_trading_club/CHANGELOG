@@ -1,0 +1,9 @@
+## [Unlreleased]
+### Added
+- Rails new with postgres
+- Home page static page using HighVoltage
+- _settings.colors from Palette.com
+- Normalize with RailsAssets 
+- Menu bar extended to edges of browser 
+- Rake full task - runs linting all tools
+- Bugfix parent child margin collapse 
