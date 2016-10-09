@@ -6,3 +6,6 @@ IrresponsibleModule:
   - ApplicationHelper
   - ApplicationJob
   - BookTradingClub::Application
+
+exclude_paths:
+ - db/migrate

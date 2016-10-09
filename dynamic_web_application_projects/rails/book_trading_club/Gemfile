@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.6.3.0'
 gem 'high_voltage', '~> 3.0.0'
 
