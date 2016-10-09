@@ -16,5 +16,6 @@
  *= require elements.typography
  *= require components.banner
  *= require_tree .
+ *= require font-awesome
  *= require_self
  */
