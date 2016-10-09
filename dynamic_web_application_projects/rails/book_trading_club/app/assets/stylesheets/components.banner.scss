@@ -1,0 +1,17 @@
+//
+// component.banner
+//  - stretching across the width of the browser screen
+//  - https://www.sitepoint.com/css-extend-full-width-bars/
+//
+@import 'settings.colors';
+
+.banner {
+  margin: 0 -3000px;
+  overflow: auto;      // otherwise child element margins can set an empty band along the top of the browser
+  padding: 0 3000px;
+}
+
+.banner--dark {
+  background: $scheme-dark-background;
+  color: $scheme-dark-foreground;
+}

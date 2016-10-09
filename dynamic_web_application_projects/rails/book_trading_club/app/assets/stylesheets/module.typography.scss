@@ -1,7 +1,0 @@
-@import 'settings.colors';
-
-.header {
-  background: $scheme-dark-background;
-  color: $scheme-dark-foreground;
-  overflow: auto;  // otherwise h1 margin sets an empty band along the top of the browser
-}

@@ -12,6 +12,9 @@
  *
  *
  *= require normalize-css
+ *= require elements.page
+ *= require elements.typography
+ *= require components.banner
  *= require_tree .
  *= require_self
  */
