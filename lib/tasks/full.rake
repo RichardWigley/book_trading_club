@@ -2,6 +2,10 @@ require 'rubocop/rake_task'
 require 'reek/rake/task'
 require 'scss_lint/rake_task'
 
+SCSSLint::RakeTask.new do |t|
+  t.files = Dir.glob(['app/assets/stylesheets/*.scss'])
+end
+
 files = FileList['Gemfile',
                  'Rakefile',
                  'app/**/*.rb',
@@ -18,8 +22,6 @@ Reek::Rake::Task.new do |t|
   t.source_files = files
 end
 
-SCSSLint::RakeTask.new do |t|
-  t.files = Dir.glob(['app/assets/stylesheets/components.banner.scss'])
-end
-
-task full: [:scss_lint, :rubocop, :reek, :test]
+tasks = [:rubocop, :reek, :test]
+task incomplete: tasks
+task full: [:scss_lint] + tasks
