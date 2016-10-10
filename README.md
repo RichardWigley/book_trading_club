@@ -1,5 +1,24 @@
-Book Trading Club
+# README
 
-Is project idea from free code camp.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-https://www.freecodecamp.com/challenges/manage-a-book-trading-club
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
