@@ -8,4 +8,4 @@ IrresponsibleModule:
   - BookTradingClub::Application
 
 exclude_paths:
- - db/migrate
+ - db/migrate/**/*

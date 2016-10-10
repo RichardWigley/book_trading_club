@@ -1,0 +1,26 @@
+language: ruby
+
+sudo: false
+
+rvm:
+  - "2.3.1"
+
+env:
+  - DB=postgresql HOST=localhost:1025 DOMAIN=test.example.com
+
+addons:
+  postgresql: 9.4
+
+before_script:
+  - bundle exec rake db:create RAILS_ENV=test
+
+script:
+  - bundle exec rails db:migrate
+  - bundle exec rails full
+
+notifications:
+  email: true
+  slack: bcs-io:j4u422myY0CcryFquMCAOi45
+  webhooks:
+    on_success: change
+    on_failure: always
