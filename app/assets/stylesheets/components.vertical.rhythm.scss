@@ -1,0 +1,33 @@
+// Vertical Rhythm
+//  - the spacing of blocks on the page can make for a calmer experience
+//    for the reader. Going to try it out.
+//  - placing all margins on the bottom which makes figuring out problems
+//    easier. Don't have to worry about margin collapse, say.
+//
+// http://csswizardry.com/2012/06/single-direction-margin-declarations/
+//
+
+body {
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+footer,
+header,
+hgroup,
+ul,
+ol,
+dd,
+p,
+figure,
+pre,
+table,
+fieldset,
+hr {
+  margin-bottom: 1.5rem;
+}
