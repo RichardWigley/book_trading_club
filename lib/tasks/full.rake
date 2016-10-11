@@ -22,6 +22,6 @@ Reek::Rake::Task.new do |t|
   t.source_files = files
 end
 
-tasks = [:rubocop, :reek, :test]
+tasks = [:'brakeman:run', :rubocop, :reek, :test]
 task incomplete: tasks
 task full: [:scss_lint] + tasks
