@@ -4,8 +4,8 @@ require "test_helper"
 #  - Guest user features
 #
 class GuestViewingTest < Capybara::Rails::TestCase
-  test "document title has been set" do
+  test "can view landing page" do
     visit root_path
-    # assert_selector "h1", text: "ROE"
+    assert_selector "h1", text: "ROE"
   end
 end
