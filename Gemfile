@@ -31,7 +31,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.6.3.0'
-gem 'high_voltage', '~> 3.0.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-normalize-css'
