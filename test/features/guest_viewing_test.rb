@@ -17,4 +17,13 @@ class GuestViewingTest < Capybara::Rails::TestCase
     click_on 'Sign up'
     page.must_have_content('Welcome! You have signed up successfully.')
   end
+
+  test "a guest cannot sign up without valid information" do
+    visit root_path
+    fill_in 'Email', with: 'user@example.com'
+    fill_in 'Password', with: ''
+    fill_in 'Password confirmation', with: 'secret'
+    click_on 'Sign up'
+    page.must_have_content('errors prohibited this account from being saved')
+  end
 end
