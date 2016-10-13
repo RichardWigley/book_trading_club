@@ -50,6 +50,8 @@ $color-grey-alto:              rgba(220, 220, 220, 1);      // Pale Grey Gainsbr
 $color-boulder:                rgba(119, 119, 119, 1);      // Medium Dark Grey
 $color-tundora:                rgba(68, 68, 68, 1);         // Very Dark Grey
 
+// shadow
+$color-shadow:                 rgba( 0,  0,  0, .5);        // color used for all shadows
 
 // ----------------------------------------------------------------------------
 //
@@ -80,4 +82,9 @@ $scheme-light-foreground:        $rgba-primary-0;
 
 $scheme-dark-background:         $rgba-primary-0;
 $scheme-dark-foreground:         $color-white;
+
+
+// Action Colors
+$color-secondary-1:              $rgba-secondary-1-0;
+$color-secondary-2:              $rgba-secondary-2-0;
 

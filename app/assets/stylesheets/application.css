@@ -16,6 +16,7 @@
  *= require elements.typography
  *= require objects.boxes
  *= require components.banner
+ *= require components.buttons
  *= require components.vertical.rhythm
  *= require_tree .
  *= require font-awesome
