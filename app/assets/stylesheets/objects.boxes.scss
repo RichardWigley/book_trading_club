@@ -1,0 +1,30 @@
+//
+// CSS Boxes
+//  - flexbox infrastructure for the application
+//
+
+.box {
+  display: flex;
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--full {
+    width: 100%;
+  }
+}
+
+.box__item {
+  + .box__item {
+    margin-left: 1em;
+  }
+
+  &--main {
+    flex: 1 0 auto;
+  }
+}

@@ -1,0 +1,9 @@
+#
+# .scss-lint.yml
+#   - configuration for scss-lint
+#   - https://github.com/brigade/scss-lint
+#
+linters:
+  SelectorFormat:
+  # button__icon => .button--icon
+    enabled: false
