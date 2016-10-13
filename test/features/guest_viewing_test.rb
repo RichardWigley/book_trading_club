@@ -9,8 +9,11 @@ class GuestViewingTest < Capybara::Rails::TestCase
     assert_selector "h1", text: "ROE"
   end
 
+  # success
+
   test "a guest can sign up" do
     visit root_path
+    click_on 'Sign Up'
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'secret'
     fill_in 'Password confirmation', with: 'secret'
@@ -18,8 +21,11 @@ class GuestViewingTest < Capybara::Rails::TestCase
     page.must_have_content('Welcome! You have signed up successfully.')
   end
 
+  # failure
+
   test "a guest cannot sign up without valid information" do
     visit root_path
+    click_on 'Sign Up'
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: ''
     fill_in 'Password confirmation', with: 'secret'
