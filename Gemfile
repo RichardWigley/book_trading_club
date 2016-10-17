@@ -56,6 +56,7 @@ group :development do
 end
 
 group :test do
+  gem 'capybara-screenshot', '~> 1.0.14'
   gem 'minitest-rails-capybara', '~> 3.0.0'
 end
 
