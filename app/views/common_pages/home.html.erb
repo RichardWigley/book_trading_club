@@ -17,4 +17,23 @@
   <div class='list__card  list__card--compliment'>
     <p class='list__card__text  list__card__text__lead'>Give away books you have read,</p> <p class='list__card__text'>get an unread one instead.</p>
   </div>
+  <div class='list__card  list__card--primary-light'>
+    <div class="grid grid--gutters">
+      <div class="grid__cell">
+        Title
+      </div>
+      <div class="grid__cell">
+        Author
+      </div>
+    </div>
+  <% @books.each do |book|  %>
+    <div class="grid grid--gutters">
+      <div class="grid__cell">
+        <%= book.title %>
+      </div>
+      <div class="grid__cell">
+        <%= book.author %>
+      </div>
+    </div>
+  <% end %>
 </section>

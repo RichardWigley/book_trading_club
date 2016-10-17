@@ -21,6 +21,11 @@
   padding: 2%;
 }
 
+.list__card--primary-light {
+  background-color: lighten($rgba-primary-0, 30%);
+  color: $color-black;
+}
+
 .list__card--compliment {
   background-color: lighten($rgba-complement-0, 10%);
   color: $color-white;

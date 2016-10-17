@@ -6,5 +6,6 @@ class CommonPagesController < ApplicationController
   layout 'common_pages'
 
   def home
+    @books = Book.limit(10).ordered
   end
 end
