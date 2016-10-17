@@ -1,0 +1,52 @@
+//
+// CSS Cards
+//  - want cards which cope with changing sizes of screen
+//  - taken from here but using bem and box-sizing
+//  - https://css-tricks.com/designing-a-product-page-layout-with-flexbox/
+//
+
+@import 'settings.colors';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list__card {
+  box-shadow: 1px 2px 4px 0 $color-shadow;
+
+  display: flex;
+  flex: 1 100%;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.list__card--compliment {
+  background-color: lighten($rgba-complement-0, 10%);
+  color: $color-white;
+}
+
+//
+// Card with text
+//
+
+//
+//  - first paragraph
+//
+.list__card__text__lead {
+  &::first-letter {
+    font-size: 2.5em;
+    line-height: 1em;
+  }
+}
+
+//
+//  - subsequent paragraphs
+//
+.list__card__text {
+  margin: 0 0 .75em;
+
+  + .list__card__text {
+    text-indent: 2em;
+  }
+}
