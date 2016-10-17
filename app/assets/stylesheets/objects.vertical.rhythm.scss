@@ -3,6 +3,8 @@
 //    for the reader. Going to try it out.
 //  - placing all margins on the bottom which makes figuring out problems
 //    easier. Don't have to worry about margin collapse, say.
+//  - Needs to be as high up the require tree as possible - so other modules
+//    can overwrite margin if they need
 //
 // http://csswizardry.com/2012/06/single-direction-margin-declarations/
 //
