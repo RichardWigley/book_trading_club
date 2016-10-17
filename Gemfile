@@ -48,7 +48,6 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'reek', '~> 4.4.0', require: false
   gem 'rubocop', '~> 0.43.0', require: false
-  gem 'scss_lint', '~> 0.50.0', require: false
   # Spring speeds up development by keeping your application running in the background.
   # Read more: https://github.com/rails/spring
   gem 'spring'

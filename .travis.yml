@@ -16,12 +16,7 @@ before_script:
 
 script:
   - bundle exec rails db:migrate
-  # Travis Raises
-  # ActionView::Template::Error: Illegal nesting: Only properties may be nested beneath
-  # properties. If I try and use scss-lint - even with require: false
-  # https://github.com/brigade/scss-lint/issues/496
-  # Replacing task 'rails full' with 'rails incomplete'
-  - bundle exec rails incomplete 
+  - bundle exec rails full
 
 notifications:
   email: true
