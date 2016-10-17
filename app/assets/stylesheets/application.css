@@ -17,6 +17,7 @@
  *= require objects.vertical.rhythm
  *= require objects.boxes
  *= require objects.grid
+ *= require objects.utility
  *= require components.banner
  *= require components.buttons
  *= require components.cards
