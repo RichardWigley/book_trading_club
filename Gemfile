@@ -41,6 +41,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
+# faker
+#  - demo application so going to fake the base data
+gem 'faker', '~> 1.6.0', require: false
+
 group :development do
   gem 'brakeman', '~> 3.3.0', require: false
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
