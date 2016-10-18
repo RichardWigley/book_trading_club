@@ -1,0 +1,11 @@
+
+//
+// DEBUG
+//  - output line around the element
+//
+
+@import 'settings.colors';
+
+.debug {
+  border: 1px solid $color-debug;
+}
