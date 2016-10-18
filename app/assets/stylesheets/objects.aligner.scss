@@ -1,0 +1,29 @@
+//
+// Flexbox
+//  - overlap with box - do we need both?
+// https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
+//
+
+.aligner {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 24em;        // ie 10 - 11 flexbox bug
+}
+
+.aligner__item {
+  flex: 1;
+}
+
+.aligner__item--top {
+  align-self: flex-start;
+}
+
+.aligner__item--bottom {
+  align-self: flex-end;
+}
+
+.aligner__item--fixed {
+  flex: none;
+  max-width: 50%;
+}
