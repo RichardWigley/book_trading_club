@@ -60,7 +60,9 @@ end
 
 group :test do
   gem 'capybara-screenshot', '~> 1.0.14'
+  gem 'database_cleaner', '~> 1.5.0'
   gem 'minitest-rails-capybara', '~> 3.0.0'
+  gem 'minitest-around', '~> 0.4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
