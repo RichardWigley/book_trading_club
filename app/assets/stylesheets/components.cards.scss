@@ -26,6 +26,12 @@
   color: $color-black;
 }
 
+// card__divider
+//
+.list__card__divider {
+  border-bottom: 1px solid lighten($rgba-primary-0, 15%);
+}
+
 .list__card--compliment {
   background-color: lighten($rgba-complement-0, 10%);
   color: $color-white;

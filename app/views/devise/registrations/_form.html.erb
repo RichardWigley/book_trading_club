@@ -19,8 +19,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form__row'%>
   </div>
 
-  <div class="actions">
+  <div class="actions  u-padding--bottom  list__card__divider">
     <%= f.submit "Sign up", class: 'button  button__secondary--2' %>
   </div>
 <% end %>
 
+Already have an account? <%= link_to 'Log In', new_account_session_path %> 
