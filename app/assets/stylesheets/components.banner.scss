@@ -4,6 +4,26 @@
 //
 @import 'settings.colors';
 
+//
+// banner__header--home
+//  - only page that has buttons in it
+//
+.banner__header--home {
+  margin: .3em;   // sizing to work with the buttons on the menu
+}
+
+//
+// banner__header--plain
+//   - when nothing in the banner except header
+//
+.banner__header--plain {
+  margin: 0;
+}
+
+//
+// banner styling
+//
+
 .banner--dark {
   background: $scheme-dark-background;
   color: $scheme-dark-foreground;
