@@ -1,5 +1,9 @@
-body {
+//
+// container
+//  - anything element that does not want to stretch to the browser borders
+//    should use this.
+//
+.container {
   margin: 0 auto;
-  overflow-x: hidden;
-  width: 95%;
+  max-width: 95%;
 }
