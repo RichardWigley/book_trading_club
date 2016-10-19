@@ -4,6 +4,8 @@
 // https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
 //
 
+@import 'settings.constants';
+
 .aligner {
   align-items: center;
   display: flex;
@@ -25,5 +27,12 @@
 
 .aligner__item--fixed {
   flex: none;
-  max-width: 50%;
+
+  @media screen and (min-width: $break-small) {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: $break-medium) {
+    max-width: 360px;
+  }
 }
