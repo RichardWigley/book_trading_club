@@ -69,6 +69,9 @@ $color-line:                          $color-grey-alto;           // Very Pale G
 
 $transparent:                         transparent;
 
+$color-status-neutral:                lighten($rgba-primary-0, 20%);
+$color-status-bad:                    lighten($rgba-secondary-2-0, 20%);
+
 //
 // $TYPOGRAPHY
 //

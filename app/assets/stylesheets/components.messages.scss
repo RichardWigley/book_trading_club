@@ -1,0 +1,16 @@
+@import 'settings.colors';
+
+.message {
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.message--notice {
+  background: $color-status-neutral;
+  border: 1px solid darken($color-status-neutral, 5%);
+}
+
+.message--alert {
+  background: $color-status-bad;
+  border: 1px solid darken($color-status-bad, 5%);
+}

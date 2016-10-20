@@ -22,6 +22,7 @@
  *= require components.banner
  *= require components.buttons
  *= require components.cards
+ *= require components.messages
  *= require_tree .
  *= require font-awesome
  *= require_self
