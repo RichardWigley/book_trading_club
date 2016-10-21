@@ -30,6 +30,8 @@ class RegistrationTest < Capybara::Rails::TestCase
     fill_in 'Password', with: ''
     fill_in 'Password confirmation', with: 'secret'
     click_on 'Sign up'
+
+    assert_equal('Sign Up - BookTradingClub', page.title)
     page.must_have_content('errors prohibited this account from being saved')
   end
 end
