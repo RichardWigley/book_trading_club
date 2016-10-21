@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.6.3.0'
+gem 'pundit', git: 'git://github.com/elabs/pundit.git'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-normalize-css'

@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/elabs/pundit.git
+  revision: c3f2d09a0e67e868449e4d53301dfdc819004032
+  specs:
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -254,6 +261,7 @@ DEPENDENCIES
   minitest-rails-capybara (~> 3.0.0)
   pg (~> 0.18)
   puma (~> 3.0)
+  pundit!
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-assets-normalize-css!
   reek (~> 4.4.0)
