@@ -13,7 +13,7 @@ class RegistrationTest < Capybara::Rails::TestCase
 
   test "a guest can sign up" do
     visit root_path
-    click_on 'Sign Up'
+    click_on 'Sign up'
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'secret'
     fill_in 'Password confirmation', with: 'secret'
@@ -25,7 +25,7 @@ class RegistrationTest < Capybara::Rails::TestCase
 
   test "a guest cannot sign up without valid information" do
     visit root_path
-    click_on 'Sign Up'
+    click_on 'Sign up'
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: ''
     fill_in 'Password confirmation', with: 'secret'
