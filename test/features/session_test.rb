@@ -13,6 +13,8 @@ class SessionTest < Capybara::Rails::TestCase
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'secret'
     click_on 'Log in'
+
+    assert_equal('Library - BookTradingClub', page.title)
     page.must_have_content('Signed in successfully.')
   end
 

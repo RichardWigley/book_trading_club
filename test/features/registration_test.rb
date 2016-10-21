@@ -18,6 +18,8 @@ class RegistrationTest < Capybara::Rails::TestCase
     fill_in 'Password', with: 'secret'
     fill_in 'Password confirmation', with: 'secret'
     click_on 'Sign up'
+
+    assert_equal('Library - BookTradingClub', page.title)
     page.must_have_content('Welcome! You have signed up successfully.')
   end
 
