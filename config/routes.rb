@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   root to: 'common_pages#home'
 
+  get 'accounts/show'
   resource :books
 
   devise_for :accounts
