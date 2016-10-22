@@ -24,6 +24,7 @@ Metrics/LineLength:
   Exclude:
     - 'config/environments/*'
     - 'config/initializers/*'
+    - 'test/support/authorize.rb'
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.

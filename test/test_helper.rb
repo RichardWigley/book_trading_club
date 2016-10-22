@@ -15,3 +15,6 @@ class Capybara::Rails::TestCase
     DatabaseCleaner.cleaning(&tests)
   end
 end
+
+# require all test support files
+Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }

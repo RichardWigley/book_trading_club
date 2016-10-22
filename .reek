@@ -1,4 +1,8 @@
 ---
+DataClump:
+  exclude:
+  - Authorize
+
 IrresponsibleModule:
   exclude:
   - ApplicationCable::Channel
@@ -6,6 +10,10 @@ IrresponsibleModule:
   - ApplicationHelper
   - ApplicationJob
   - BookTradingClub::Application
+
+UtilityFunction:
+  exclude:
+  - Authorize
 
 exclude_paths:
  - db/migrate/**/*
