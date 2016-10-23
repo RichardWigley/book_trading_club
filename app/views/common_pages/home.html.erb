@@ -1,14 +1,4 @@
-<header class='banner--dark  u-margin--bottom--0'>
-  <div class='container  box  box--full'>
-    <h1 class='box__item--main banner__header--home'>ROE</h1>
-    <div class='box  box--column  box--center'>
-      <div class='box  '>
-        <div class='box__item'><%= link_to('Log in', new_account_session_path, class: 'button button__secondary--1') %></div>
-        <div class='box__item'><%= link_to('Sign up', new_account_registration_path, class: 'button button__secondary--2') %></div>
-        </div>
-    </div>
-  </div>
-</header>
+<%= render 'layouts/common_pages/header' %>
 <%= render 'layouts/messages' %>
 <div class='container'>
   <h2>Welcome to Earth's Smallest Book Trading Store</h2>
