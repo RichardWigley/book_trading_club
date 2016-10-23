@@ -24,4 +24,9 @@ class ApplicationController < ActionController::Base
     flash[:alert] = 'Access Denied'
     redirect_to(request.referrer || new_account_session_path)
   end
+
+  # overwriting devise logout path
+  def after_sign_out_path_for(_resource_or_scope)
+    logged_out_path
+  end
 end

@@ -8,4 +8,7 @@ class CommonPagesController < ApplicationController
   def home
     @books = Book.limit(10).ordered
   end
+
+  def logged_out
+  end
 end
