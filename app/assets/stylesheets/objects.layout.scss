@@ -3,6 +3,10 @@
 //   - css objects for control over the layout elements
 //
 
+//
+// layout__v-wrapper
+//  - uses all the vertical space on the browser
+//
 .layout__v-wrapper {
   display: flex;
   flex-direction: column;
@@ -11,7 +15,7 @@
 
 //
 // layout__w-wrapper
-//  - anything element that does not want to stretch to the browser borders
+//  - any element that does not want to stretch to the browser borders
 //    should use this.
 //
 .layout__w-wrapper {
@@ -19,23 +23,40 @@
   max-width: 95%;
 }
 
+//
+// layout__header
+//  - repeated element at the top of the page
+//
 .layout__header {
   overflow: hidden;
   padding-bottom: .5em;
 }
 
+//
+// layout__footer
+//  - repeated element at the bottom of the page
+//
+.layout__footer {
+  flex-basis: 60px;
+  overflow: hidden;
+}
+
+//
+// layout__site
+//   - the page specific information
+//     - includes the title and the content
+//
 .layout__site {
   flex-grow: 1;
   overflow-y: auto;
   width: 100%;
 }
 
+//
+// layout__site__content
+//  - the page specific information
+//
 .layout__site__content {
   margin: 0 auto;
   width: 100%;
-}
-
-.layout__footer {
-  flex-basis: 60px;
-  overflow: hidden;
 }
