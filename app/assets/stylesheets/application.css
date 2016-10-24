@@ -17,6 +17,7 @@
  *= require objects.vertical.rhythm
  *= require objects.aligner
  *= require objects.boxes
+ *= require objects.headings
  *= require objects.layout
  *= require objects.grid
  *= require objects.utility
