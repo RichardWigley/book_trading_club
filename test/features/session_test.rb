@@ -10,6 +10,8 @@ class SessionTest < Capybara::Rails::TestCase
     Account.create(email: 'user@example.com', password: 'secret')
     visit root_path
     click_on 'Log in'
+
+    assert_equal('Log In - BookTradingClub', page.title)
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Password', with: 'secret'
     click_on 'Log in'
