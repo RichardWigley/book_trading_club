@@ -5,13 +5,3 @@ body {
   margin: 0;  // to avoid scrollbars
   padding: 0;  // to avoid scrollbars
 }
-
-//
-// container
-//  - anything element that does not want to stretch to the browser borders
-//    should use this.
-//
-.container {
-  margin: 0 auto;
-  max-width: 95%;
-}

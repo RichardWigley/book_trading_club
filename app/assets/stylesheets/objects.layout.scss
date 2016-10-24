@@ -9,6 +9,16 @@
   height: 100%;
 }
 
+//
+// layout__w-wrapper
+//  - anything element that does not want to stretch to the browser borders
+//    should use this.
+//
+.layout__w-wrapper {
+  margin: 0 auto;
+  max-width: 95%;
+}
+
 .layout__header {
   overflow: hidden;
   padding-bottom: .5em;
