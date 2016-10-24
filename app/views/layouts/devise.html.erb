@@ -1,0 +1,10 @@
+<!-- override the default layout of devise pages -->
+<!DOCTYPE html>
+<html>
+  <%= render 'layouts/head' %>
+  <body>
+    <%= render 'layouts/common_pages/header' %>
+    <%= render 'layouts/messages' %>
+    <%= yield %>
+  </body>
+</html>
