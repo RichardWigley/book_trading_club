@@ -2,8 +2,13 @@
 <html>
   <%= render 'layouts/head' %>
   <body>
-    <%= render 'layouts/header' %>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+    <div class='layout__v-wrapper'>
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+      <div id='footer' class='footer'>
+        the bottom
+      <div>
+    </div>
   </body>
 </html>

@@ -1,4 +1,10 @@
 <% content_for :title, "Account" %>
-<h1>Accounts#show</h1>
-
-<%= link_to('Log out', destroy_account_session_path) %>
+<div class='container  layout__site'>
+  <h1>Account</h1>
+  <div class= 'layout__site__content'>
+    <%= link_to('Log out', destroy_account_session_path) %>
+    <% (1..10).each do |n| %>
+      <%= "<br>#{n} Book".html_safe %>
+    <% end %>
+  </div>
+</div>
