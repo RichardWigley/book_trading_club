@@ -6,8 +6,17 @@
       <%= render 'layouts/header' %>
       <%= render 'layouts/messages' %>
       <%= yield %>
-      <div id='footer' class='footer'>
-        the bottom
+      <div class='layout__footer'>
+        <div class='layout__w-wrapper  menu'>
+          <div class='menu__item'>
+            <%= fa_icon 'user' %>
+            Account
+          </div>
+          <div class='menu__item'>
+            <%= fa_icon 'book' %>
+            Library
+          </div>
+        </div>
       <div>
     </div>
   </body>
