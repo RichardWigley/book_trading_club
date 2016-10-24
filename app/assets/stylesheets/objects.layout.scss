@@ -28,8 +28,7 @@
 //  - repeated element at the top of the page
 //
 .layout__header {
-  overflow: hidden;
-  padding-bottom: .5em;
+  flex: 0 0 4rem;
 }
 
 //
@@ -37,8 +36,7 @@
 //  - repeated element at the bottom of the page
 //
 .layout__footer {
-  flex-basis: 60px;
-  overflow: hidden;
+  flex: 0 0 5rem;
 }
 
 //
