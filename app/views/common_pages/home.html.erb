@@ -16,15 +16,16 @@
           Author
         </div>
       </div>
-    <% @books.each do |book|  %>
-      <div class="grid grid--gutters">
-        <div class="grid__cell">
-          <%= book.title %>
+      <% @books.each do |book|  %>
+        <div class="grid grid--gutters">
+          <div class="grid__cell">
+            <%= book.title %>
+          </div>
+          <div class="grid__cell">
+            <%= book.author %>
+          </div>
         </div>
-        <div class="grid__cell">
-          <%= book.author %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </section>
 </div> <!-- layout__w-wrapper -->
