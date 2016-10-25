@@ -8,13 +8,13 @@
       <%= yield %>
       <div class='layout__footer  menu--dark'>
         <div class='layout__w-wrapper  menu'>
-          <%= link_to accounts_show_path(current_account), class: 'menu__link' do %>
+          <%= active_link_to accounts_show_path(current_account), class: 'menu__link', class_active: 'menu__link--active' do %>
             <div class='menu__item'>
               <%= fa_icon 'user' %>
               Account
             </div>
           <% end %>
-          <%= link_to books_path, class: 'menu__link' do %>
+          <%= active_link_to books_path, class: 'menu__link', class_active: 'menu__link--active', active: :exact do %>
             <div class='menu__item'>
               <%= fa_icon 'book' %>
               Library
