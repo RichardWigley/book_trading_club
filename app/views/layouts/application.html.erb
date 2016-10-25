@@ -8,14 +8,18 @@
       <%= yield %>
       <div class='layout__footer'>
         <div class='layout__w-wrapper  menu'>
-          <div class='menu__item'>
-            <%= fa_icon 'user' %>
-            Account
-          </div>
-          <div class='menu__item'>
-            <%= fa_icon 'book' %>
-            Library
-          </div>
+          <%= link_to accounts_show_path(current_account) do %>
+            <div class='menu__item'>
+              <%= fa_icon 'user' %>
+              Account
+            </div>
+          <% end %>
+          <%= link_to books_path do %>
+            <div class='menu__item'>
+              <%= fa_icon 'book' %>
+              Library
+            </div>
+          <% end %>
         </div>
       <div>
     </div>
