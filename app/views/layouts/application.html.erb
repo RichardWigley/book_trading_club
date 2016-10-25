@@ -6,15 +6,15 @@
       <%= render 'layouts/header' %>
       <%= render 'layouts/messages' %>
       <%= yield %>
-      <div class='layout__footer'>
+      <div class='layout__footer  menu--dark'>
         <div class='layout__w-wrapper  menu'>
-          <%= link_to accounts_show_path(current_account) do %>
+          <%= link_to accounts_show_path(current_account), class: 'menu__link' do %>
             <div class='menu__item'>
               <%= fa_icon 'user' %>
               Account
             </div>
           <% end %>
-          <%= link_to books_path do %>
+          <%= link_to books_path, class: 'menu__link' do %>
             <div class='menu__item'>
               <%= fa_icon 'book' %>
               Library
