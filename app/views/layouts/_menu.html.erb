@@ -5,6 +5,18 @@
       Account
     </div>
   <% end %>
+  <%= active_link_to '#', class: 'menu__link', class_active: 'menu__link--active' do %>
+    <div class='menu__item'>
+      <%= fa_icon 'share' %>
+      Offer
+    </div>
+  <% end %>
+  <%= active_link_to '#', class: 'menu__link', class_active: 'menu__link--active' do %>
+    <div class='menu__item'>
+      <%= fa_icon 'reply' %>
+      Want
+    </div>
+  <% end %>
   <%= active_link_to books_path, class: 'menu__link', class_active: 'menu__link--active', active: :exact do %>
     <div class='menu__item'>
       <%= fa_icon 'book' %>
