@@ -20,11 +20,17 @@
 }
 
 .box__item {
+  align-items: center;
+
   + .box__item {
-    margin-left: 1em;
+    margin-left: 2em;
   }
 
   &--main {
     flex: 1 0 auto;
   }
+}
+
+.box__item--bookend-right {
+  margin-left: auto;
 }

@@ -20,6 +20,15 @@
   margin: 0;
 }
 
+.banner__header--link {
+  color: $scheme-dark-foreground;
+  text-decoration: none;
+
+  &:visited {
+    color: $scheme-dark-foreground;
+  }
+}
+
 //
 // banner styling
 //
