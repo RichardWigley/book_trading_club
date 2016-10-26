@@ -3,23 +3,14 @@
   <%= render 'layouts/head' %>
   <body>
     <div class='layout__v-wrapper'>
-      <%= render 'layouts/header' %>
-      <%= render 'layouts/messages' %>
+      <div class='layout__header'>
+        <%= render 'layouts/header' %>
+        <%= render 'layouts/messages' %>
+      </div>
       <%= yield %>
       <div class='layout__footer  menu--dark'>
-        <div class='layout__w-wrapper  menu'>
-          <%= active_link_to accounts_show_path(current_account), class: 'menu__link', class_active: 'menu__link--active' do %>
-            <div class='menu__item'>
-              <%= fa_icon 'user' %>
-              Account
-            </div>
-          <% end %>
-          <%= active_link_to books_path, class: 'menu__link', class_active: 'menu__link--active', active: :exact do %>
-            <div class='menu__item'>
-              <%= fa_icon 'book' %>
-              Library
-            </div>
-          <% end %>
+        <div class='layout__w-wrapper'>
+          <%= render 'layouts/menu' %>
         </div>
       <div>
     </div>

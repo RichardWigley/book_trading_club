@@ -1,0 +1,15 @@
+<div class='menu'>
+  <%= active_link_to accounts_show_path(current_account), class: 'menu__link', class_active: 'menu__link--active' do %>
+    <div class='menu__item'>
+      <%= fa_icon 'user' %>
+      Account
+    </div>
+  <% end %>
+  <%= active_link_to books_path, class: 'menu__link', class_active: 'menu__link--active', active: :exact do %>
+    <div class='menu__item'>
+      <%= fa_icon 'book' %>
+      Library
+    </div>
+  <% end %>
+</div>
+
