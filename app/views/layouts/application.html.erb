@@ -3,11 +3,13 @@
   <%= render 'layouts/head' %>
   <body>
     <div class='layout__v-wrapper'>
-      <div class='layout__header'>
+      <div class='layout__site'>
         <%= render 'layouts/header' %>
         <%= render 'layouts/messages' %>
+        <div class='layout__w-wrapper'>
+          <%= yield %>
+        </div>
       </div>
-      <%= yield %>
       <div class='layout__footer  menu--dark'>
         <div class='layout__w-wrapper'>
           <%= render 'layouts/menu' %>

@@ -1,27 +1,25 @@
 <% content_for :title, "Library" %>
-<div class='layout__w-wrapper  layout__site'>
-  <h1 class='headings--compressed'>Library</h1>
+<h1 class='headings--compressed'>Library</h1>
 
-  <section class='layout__site__content list'>
-    <div class='list__card  list__card--primary-light'>
+<section class='layout__site__content list'>
+  <div class='list__card  list__card--primary-light'>
+    <div class="grid grid--gutters">
+      <div class="grid__cell">
+        Title
+      </div>
+      <div class="grid__cell">
+        Author
+      </div>
+    </div>
+    <% @books.each do |book|  %>
       <div class="grid grid--gutters">
         <div class="grid__cell">
-          Title
+          <%= book.title %>
         </div>
         <div class="grid__cell">
-          Author
+          <%= book.author %>
         </div>
       </div>
-      <% @books.each do |book|  %>
-        <div class="grid grid--gutters">
-          <div class="grid__cell">
-            <%= book.title %>
-          </div>
-          <div class="grid__cell">
-            <%= book.author %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </section>
-</div> <!-- layout__w-wrapper -->
+    <% end %>
+  </div>
+</section>
