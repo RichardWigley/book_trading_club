@@ -1,12 +1,9 @@
 <header class='banner--dark  u-margin--bottom--0'>
   <div class='layout__w-wrapper  box  box--full  u-padding--top--bottom'>
-    <%= link_to root_path, class: 'banner__header--link' do %>
-      <h1 class='banner__header--plain'>ROE</h1>
-    <% end %>
+    <%= render 'layouts/logo' %>
     <div class='box  box--center box__item--bookend-right'>
       <div class='box box__item'><%= link_to('Log in', new_account_session_path, class: 'button button__secondary--1') %></div>
       <div class='box box__item'><%= link_to('Sign up', new_account_registration_path, class: 'button button__secondary--2') %></div>
     </div>
   </div>
 </header>
-
