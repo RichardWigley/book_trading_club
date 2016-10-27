@@ -15,7 +15,6 @@
  *= require elements.page
  *= require elements.typography
  *= require objects.vertical.rhythm
- *= require objects.spacing
  *= require objects.aligner
  *= require objects.boxes
  *= require objects.headings

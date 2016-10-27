@@ -2,22 +2,8 @@
 // Utility
 //
 
-.u-padding--bottom {
-  padding-bottom: 1.5em;
-}
+//
+// Generates u-padding and u-margin classes
+//
+@import 'tools.spacing';
 
-.u-margin--left {
-  margin-left: 3em;
-}
-
-.u-margin--bottom {
-  margin-bottom: 1.5em;
-}
-
-.u-margin--bottom--0 {
-  margin-bottom: 0;
-}
-
-.u-padding--top--bottom {
-  padding: .3em 0;
-}
