@@ -17,7 +17,7 @@ class LogoNavigationTest < Capybara::Rails::TestCase
     fill_in 'Password', with: 'secret'
     click_on 'Log in'
 
-    click_on 'Account'
+    click_on('Account', match: :first)
     assert_equal('Account - BookTradingClub', page.title)
 
     click_on 'ROE'

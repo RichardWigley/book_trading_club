@@ -14,7 +14,7 @@ class AccountShowTest < Capybara::Rails::TestCase
     fill_in 'Password', with: 'secret'
     click_on 'Log in'
 
-    click_on 'Account'
+    click_on('Account', match: :first)
     assert_equal('Account - BookTradingClub', page.title)
   end
 
@@ -26,7 +26,7 @@ class AccountShowTest < Capybara::Rails::TestCase
     fill_in 'Password', with: 'secret'
     click_on 'Log in'
 
-    click_on 'Account'
+    click_on('Account', match: :first)
     click_on 'Log out'
 
     assert_equal('Log Out - BookTradingClub', page.title)
