@@ -4,6 +4,9 @@
 #   - https://github.com/brigade/scss-lint
 #
 linters:
+  ImportantRule:
+    exclude:
+      - 'app/assets/stylesheets/_tools.spacing.scss'
   SelectorFormat:
   # button__icon => .button--icon
     enabled: false
