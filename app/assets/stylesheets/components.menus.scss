@@ -8,6 +8,17 @@
   width: 100%;
 }
 
+.menu--touch {
+  display: none;
+
+  // if we are on a touch screen then display
+  @media(pointer: coarse) {
+    // supported on mobile except opera mini
+    // not supported by IE and Firefox in which case the block's styles aren't applied
+    display: block;
+  }
+}
+
 .menu--dark {
   background: darken($scheme-dark-background, 8%);
 }
