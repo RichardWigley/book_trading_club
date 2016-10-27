@@ -27,11 +27,9 @@
 
 .aligner__item--fixed {
   flex: none;
+  max-width: 100%;
 
-  @media screen and (min-width: $break-small) {
-    max-width: 100%;
-  }
-
+  // if device width is greater than or equal to $break-medium then do ...
   @media screen and (min-width: $break-medium) {
     max-width: 360px;
   }
