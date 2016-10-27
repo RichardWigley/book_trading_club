@@ -17,6 +17,15 @@
   &--full {
     width: 100%;
   }
+
+  //
+  // flexbox by default should stretch - to fill the height you should do nothing but flex
+  //  - this seems to work for chrome & firefox. However, Safari needs to have the height
+  //    set as well.
+  //
+  &--hack {
+    height: 100%;
+  }
 }
 
 .box__item {
