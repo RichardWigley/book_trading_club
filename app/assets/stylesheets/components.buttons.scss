@@ -3,9 +3,10 @@
 //  - for styling links into buttons
 //
 @import 'settings.colors';
+@import 'settings.constants';
 
 .button {
-  border-radius: 3px;
+  border-radius: $button-border-radius;
   box-shadow: 0 2px 10px $color-shadow;
   cursor: pointer;
   display: inline-block;
