@@ -33,6 +33,7 @@ gem 'devise', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.6.3.0'
 gem 'pundit', git: 'git://github.com/elabs/pundit.git'
 gem 'active_link_to', '~> 1.0.0'
+gem 'pg_search', '~> 1.0.0'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-normalize-css'
