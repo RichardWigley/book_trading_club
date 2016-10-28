@@ -1,0 +1,55 @@
+@import 'settings.colors';
+@import 'settings.constants';
+
+//
+// Add Ons
+//  - an add on is a way of appending or prepending another element to an input field
+//  - https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/
+//
+
+//
+// Structure
+//
+
+.input-add-on {
+  display: flex;
+}
+
+.input-add-on__item {
+  flex: 1;
+}
+
+.input-add-on__field {
+  align-items: center;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+.input-add-on__field,
+.input-add-on__item {
+  padding: .5em 1em;
+
+  &:first-child {
+    border-radius: $button-border-radius 0 0 $button-border-radius;
+  }
+
+  &:last-child {
+    border-radius: 0 $button-border-radius $button-border-radius 0;
+  }
+}
+
+//
+// Styling
+//
+
+.input-add-on__item--secondary--1,
+.input-add-on__field--secondary--1 {
+  border: 1px solid $color-secondary-1;
+}
+
+.input-add-on__field--secondary--1 {
+  background: $color-secondary-1;
+  color: $color-white;
+}
