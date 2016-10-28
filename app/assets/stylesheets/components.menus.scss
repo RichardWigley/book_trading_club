@@ -1,4 +1,5 @@
 @import 'settings.colors';
+@import 'settings.constants';
 
 .menu {
   display: flex;
@@ -11,8 +12,12 @@
 .menu--touch {
   display: none;
 
+  // TODO: remove media query on size and import of constants
   // if we are on a touch screen then display
-  @media(pointer: coarse) {
+  // @media(pointer: coarse) {
+
+  // temporary to make testing easier - remove in favour of pointer coarse
+  @media(max-width: $break-large) {
     // supported on mobile except opera mini
     // not supported by IE and Firefox in which case the block's styles aren't applied
     display: block;
