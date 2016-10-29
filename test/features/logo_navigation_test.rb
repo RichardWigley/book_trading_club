@@ -9,13 +9,7 @@ class LogoNavigationTest < Capybara::Rails::TestCase
   end
 
   test "with login - site logo navigates back to library" do
-    Account.create(email: 'user@example.com', password: 'secret')
-    visit root_path
-    click_on 'Log in'
-
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'secret'
-    click_on 'Log in'
+    create_account_and_login
 
     click_on('Account', match: :first)
     assert_equal('Account - BookTradingClub', page.title)

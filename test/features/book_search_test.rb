@@ -2,13 +2,8 @@ require "test_helper"
 
 class BookSearchTest < Capybara::Rails::TestCase
   test "returns books in the library" do
-    Account.create(email: 'user@example.com', password: 'secret')
+    create_account_and_login
     Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
-    visit root_path
-    click_on 'Log in'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'secret'
-    click_on 'Log in'
 
     assert_equal('Library - BookTradingClub', page.title)
     fill_in 'search', with: 'Tha'
@@ -17,13 +12,8 @@ class BookSearchTest < Capybara::Rails::TestCase
   end
 
   test "returns all books in the library if no search term" do
-    Account.create(email: 'user@example.com', password: 'secret')
+    create_account_and_login
     Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
-    visit root_path
-    click_on 'Log in'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'secret'
-    click_on 'Log in'
 
     assert_equal('Library - BookTradingClub', page.title)
     fill_in 'search', with: ''
@@ -32,13 +22,8 @@ class BookSearchTest < Capybara::Rails::TestCase
   end
 
   test "returns nothing if book not in library" do
-    Account.create(email: 'user@example.com', password: 'secret')
+    create_account_and_login
     Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
-    visit root_path
-    click_on 'Log in'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'secret'
-    click_on 'Log in'
 
     assert_equal('Library - BookTradingClub', page.title)
     fill_in 'search', with: 'Hobbit'
