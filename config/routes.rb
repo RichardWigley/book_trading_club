@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get '/logged-out', to: 'common_pages#logged_out', as: 'logged_out'
 
   get 'accounts/show'
-  resources :books
+
+  resources :books do
+    resources :offers, only: [:new, :create]
+  end
+  resources :offers, only: [:index]
 
   devise_for :accounts
 end

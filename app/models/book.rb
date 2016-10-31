@@ -2,6 +2,7 @@
 #  - represents book information
 #
 class Book < ApplicationRecord
+  has_many :offers
   include PgSearch
   validates :author, :title, presence: true
 

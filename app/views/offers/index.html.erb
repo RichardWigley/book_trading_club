@@ -1,0 +1,33 @@
+<% content_for :title, 'Offer' %>
+<h1 class='headings--compressed'>Offer</h1>
+
+<%= render 'offers/search' %>
+
+<section class='layout__site__content list'>
+  <div class='list__card  list__card--primary-light'>
+    <div class="grid grid--gutters">
+      <div class="grid__cell">
+        Title
+      </div>
+      <div class="grid__cell">
+        Author
+      </div>
+    </div>
+    <% if @books.present? %>
+      <% @books.each do |book|  %>
+        <%= link_to new_book_offer_path(book) do %>
+          <div class="grid grid--gutters">
+            <div class="grid__cell">
+              <%= book.title %>
+            </div>
+            <div class="grid__cell">
+              <%= book.author %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>There are no books containing the term(s) <%= params[:search] %>.</p>
+    <% end %>
+  </div>
+</section>

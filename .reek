@@ -10,6 +10,7 @@ IrresponsibleModule:
   - ApplicationHelper
   - ApplicationJob
   - BookTradingClub::Application
+  - OfferTest
 
 UtilityFunction:
   exclude:

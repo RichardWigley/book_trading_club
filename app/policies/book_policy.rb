@@ -5,4 +5,8 @@ class BookPolicy < ApplicationPolicy
   def index?
     account
   end
+
+  def new?
+    account
+  end
 end
