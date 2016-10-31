@@ -1,7 +1,7 @@
 <% content_for :title, "Library" %>
 <h1 class='headings--compressed'>Library</h1>
 
-<%= render 'search' %>
+<%= render 'search', { path: books_path } %>
 
 <section class='layout__site__content list'>
   <div class='list__card  list__card--primary-light'>
