@@ -48,6 +48,26 @@ end
 #  - demo application so going to fake the base data
 gem 'faker', '~> 1.6.0', require: false
 
+# Capistrano deployment
+#
+group :development do
+  gem 'capistrano', '~> 3.5.0', require: false
+
+  gem 'airbrussh', '~> 1.1.0', require: false
+  gem 'capistrano-bundler', '~> 1.1.3', require: false
+
+  #
+  # Upgrading to 0.4.0 caused
+  # createdb: database creation failed: ERROR:  permission denied to create
+  gem 'capistrano-db-tasks', '0.3', require: false
+  gem 'capistrano-postgresql', '~> 4.2.0', require: false
+  gem 'capistrano-rails', '~> 1.1.3', require: false
+  gem 'capistrano-rails-collection', '~> 0.0.3', require: false
+  gem 'capistrano-rails-console', '~> 1.0.0', require: false
+  gem 'capistrano-secrets-yml', '~> 1.0.0', require: false
+  gem 'capistrano3-puma', '~> 1.2.0'
+end
+
 group :development do
   gem 'brakeman', '~> 3.3.0', require: false
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
