@@ -6,7 +6,7 @@
 # Capistrano Standard environment settings
 #
 def ip_address
-  '192.168.2.3'
+  'yell.richardwigley.co.uk'
 end
 
 set :stage, :production
