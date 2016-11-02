@@ -12,6 +12,7 @@ addons:
   postgresql: 9.4
 
 before_script:
+  - cp config/secrets.example.yml config/secrets.yml
   - bundle exec rake db:create RAILS_ENV=test
 
 script:
