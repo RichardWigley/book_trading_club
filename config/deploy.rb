@@ -46,6 +46,6 @@ set :db_remote_clean, true     # rm the dump file from the server after download
 set :assets_dir, %w(public/assets public/att)
 set :local_assets_dir, %w(public/assets public/att)
 
-# Whenever a cron scheduler
+# puma monit
 #
-set :whenever_identifier, -> { "#{fetch(:application)}_#{fetch(:stage)}" }
+set :puma_monit_service_name, -> { "puma_monit_#{fetch(:full_app_name)}" }
