@@ -23,7 +23,7 @@ set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:full_app_name)}"
 set :keep_releases, 3
 
 # ruby-gems outside of vendored gem directory - bundler & rake (good practice?)
-set :system_ruby, '~/.gem/ruby/2.2.0'
+set :system_ruby, '~/.gem/ruby/2.3.0'
 
 # required when Capistrano uses system ruby - bundle install
 set :default_env, 'PATH' => "PATH=$PATH:#{fetch(:system_ruby)}/bin"
