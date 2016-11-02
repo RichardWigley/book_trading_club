@@ -32,7 +32,7 @@ set :default_env, 'PATH' => "PATH=$PATH:#{fetch(:system_ruby)}/bin"
 # SCM
 #
 set :scm, :git
-set :repo_url, 'git@github.com:BCS-io/letting.git'
+set :repo_url, 'git@github.com:RichardWigley/book_trading_club.git'
 set :branch, ENV['REVISION'] || ENV['BRANCH_NAME']
 
 #-------------------------------------------------------------------------------
