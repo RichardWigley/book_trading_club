@@ -45,3 +45,5 @@ set :db_remote_clean, true     # rm the dump file from the server after download
 
 set :assets_dir, %w(public/assets public/att)
 set :local_assets_dir, %w(public/assets public/att)
+
+set :default_env, 'PATH' => '$PATH:/home/deployer/.gem/ruby/2.3.0/bin'
