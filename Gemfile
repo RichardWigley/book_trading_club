@@ -65,7 +65,7 @@ group :development do
   gem 'capistrano-rails-collection', '~> 0.0.3', require: false
   gem 'capistrano-rails-console', '~> 1.0.0', require: false
   gem 'capistrano-secrets-yml', '~> 1.0.0', require: false
-  gem 'capistrano3-puma', '~> 1.2.0'
+  gem 'capistrano3-puma', '~> 1.1.0'
 end
 
 group :development do
