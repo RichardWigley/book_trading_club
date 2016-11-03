@@ -38,6 +38,13 @@ set :branch, ENV['REVISION'] || ENV['BRANCH_NAME']
 #-------------------------------------------------------------------------------
 
 #
+# shared directories
+#
+set :linked_dirs, %w(tmp/pids tmp/sockets log)
+
+#-------------------------------------------------------------------------------
+
+#
 # db-tasks (and assets) - sgruhier/capistrano-db-tasks
 #
 set :db_local_clean, true      # remove the local dump file after loading
