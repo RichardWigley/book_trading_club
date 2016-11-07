@@ -44,6 +44,16 @@ set :linked_dirs, %w(tmp/pids tmp/sockets log)
 
 #-------------------------------------------------------------------------------
 
+# Setup
+#  - puma requires a number of one off configuration setups
+#
+after :setup, :puma_setup do
+  invoke 'puma:config'
+  invoke 'puma:nginx_config'
+  invoke 'puma:monit:config'
+end
+
+#-------------------------------------------------------------------------------
 #
 # db-tasks (and assets) - sgruhier/capistrano-db-tasks
 #
