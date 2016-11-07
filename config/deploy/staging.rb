@@ -24,4 +24,4 @@ set :rails_env, :production
 #
 # Unicorn
 #
-set :nginx_server_name, server_address
+set :nginx_server_name, "#{fetch(:application)}.#{server_address}"
