@@ -13,20 +13,19 @@
         Author
       </div>
     </div>
-    <% if @books.present? %>
-      <% @books.each do |book|  %>
-        <%= link_to new_book_offer_path(book) do %>
-          <div class="grid grid--gutters">
-            <div class="grid__cell">
-              <%= book.title %>
-            </div>
-            <div class="grid__cell">
-              <%= book.author %>
-            </div>
+    <% @books.each do |book|  %>
+      <%= link_to new_book_offer_path(book) do %>
+        <div class="grid grid--gutters">
+          <div class="grid__cell">
+            <%= book.title %>
           </div>
-        <% end %>
+          <div class="grid__cell">
+            <%= book.author %>
+          </div>
+        </div>
       <% end %>
-    <% else %>
+    <% end %>
+    <% if @books.empty? %>
       <p>There are no books containing the term(s) <%= params[:search] %>.</p>
     <% end %>
   </div>
