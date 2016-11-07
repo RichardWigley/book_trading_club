@@ -4,4 +4,6 @@
 class Offer < ApplicationRecord
   belongs_to :account
   belongs_to :book
+
+  scope :by_account, ->(account) { where(account_id: account.id) }
 end
