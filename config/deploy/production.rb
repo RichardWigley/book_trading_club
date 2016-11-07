@@ -5,23 +5,23 @@
 #-------------------------------------------------------------------------------
 # Capistrano Standard environment settings
 #
-def ip_address
-  '192.168.2.3'
+def server_name
+  "#{fetch(:application)}.richardwigley.co.uk"
 end
 
 set :stage, :production
 set :branch, 'master'
 
-role :app, ip_address
-role :web, ip_address
-role :db,  ip_address
+role :app, server_name
+role :web, server_name
+role :db,  server_name
 
-server ip_address, user: 'deployer', roles: %w(web app db), primary: true
+server server_name, user: 'deployer', roles: %w(web app db), primary: true
 set :rails_env, :production
 
 #-------------------------------------------------------------------------------
 
 #
-# Unicorn
+# Puma / Nginx Config
 #
-set :nginx_server_name, 'richardwigley.co.uk'
+set :nginx_server_name, "#{server_name} www.#{server_name}"
