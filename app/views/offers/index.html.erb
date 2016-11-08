@@ -46,19 +46,19 @@
         Author
       </div>
     </div>
-    <% @books_offered.each do |book|  %>
-      <%= link_to new_book_offer_path(book) do %>
+    <% @offers_outstanding.each do |offer|  %>
+      <%= link_to new_book_offer_path(offer.book) do %>
         <div class="grid grid--gutters">
           <div class="grid__cell">
-            <%= book.title %>
+            <%= offer.book.title %>
           </div>
           <div class="grid__cell">
-            <%= book.author %>
+            <%= offer.book.author %>
           </div>
         </div>
       <% end %>
     <% end %>
-    <% if @books_offered.empty? %>
+    <% if @offers_outstanding.empty? %>
      <p>Books you have already offered will appear here. You are not offering any books. You are feeling guilty, it will pass.</p>
     <% end %>
   </div>
