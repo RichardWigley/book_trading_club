@@ -8,6 +8,9 @@ class OfferNewTest < Capybara::Rails::TestCase
     click_on('Offer', match: :first)
     assert_equal('Offer - BookTradingClub', page.title)
 
+    fill_in 'search', with: 'Vanity Fair'
+    click_on 'Search'
+
     click_on('Vanity Fair')
 
     assert_equal('Make Offer - BookTradingClub', page.title)
