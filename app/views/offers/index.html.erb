@@ -13,7 +13,7 @@
         Author
       </div>
     </div>
-    <% @books.each do |book|  %>
+    <% @books_search.each do |book|  %>
       <%= link_to new_book_offer_path(book) do %>
         <div class="grid grid--gutters">
           <div class="grid__cell">
@@ -25,7 +25,7 @@
         </div>
       <% end %>
     <% end %>
-    <% if @books.empty? %>
+    <% if @books_search.empty? %>
       <% if params[:search] %>
         <p>There are no books containing the term(s) "<%= params[:search] %>". Enter another search.</p>
       <% else %>

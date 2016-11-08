@@ -7,8 +7,8 @@ class OffersController < ApplicationController
 
   def index
     search = params[:search]
-    @books = Book.none
-    @books = Book.search_for(search) if search.present?
+    @books_search = Book.none
+    @books_search = Book.search_for(search) if search.present?
     authorize Offer
   end
 
