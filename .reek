@@ -3,6 +3,10 @@ DataClump:
   exclude:
   - Authorize
 
+InstanceVariableAssumption:
+  exclude:
+  - OffersController
+
 IrresponsibleModule:
   exclude:
   - ApplicationCable::Channel

@@ -30,4 +30,16 @@ class OffersController < ApplicationController
     end
     authorize offer
   end
+
+  def show
+    @offer = Offer.includes(:book).find(params[:id])
+    authorize @offer
+  end
+
+  def destroy
+    offer = Offer.find(params[:id])
+    offer.destroy
+    redirect_to offers_path, notice: "Offer withdrawn for #{offer.book.title}"
+    authorize offer
+  end
 end

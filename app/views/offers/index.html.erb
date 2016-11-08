@@ -47,7 +47,7 @@
       </div>
     </div>
     <% @offers_outstanding.each do |offer|  %>
-      <%= link_to new_book_offer_path(offer.book) do %>
+      <%= link_to offer_path(offer) do %>
         <div class="grid grid--gutters">
           <div class="grid__cell">
             <%= offer.book.title %>

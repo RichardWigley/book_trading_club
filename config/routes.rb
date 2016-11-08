@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :offers, only: [:new, :create]
   end
-  resources :offers, only: [:index]
+  resources :offers, only: [:index, :show, :destroy]
 
   devise_for :accounts
 end
