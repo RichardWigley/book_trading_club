@@ -9,6 +9,8 @@ class OffersController < ApplicationController
     search = params[:search]
     @books_search = Book.none
     @books_search = Book.search_for(search) if search.present?
+
+    @books_offered = Offer.by_account(current_account).map(&:book)
     authorize Offer
   end
 

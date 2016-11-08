@@ -3,7 +3,7 @@
 
 <%= render 'books/search', { path: offers_path } %>
 
-<section class='layout__site__content list'>
+<section class='layout__site__content list  u-margin-bottom'>
   <div class='list__card  list__card--primary-light'>
     <div class="grid grid--gutters">
       <div class="grid__cell">
@@ -31,6 +31,35 @@
       <% else %>
         <p>Enter a search and the results appear here</p>
       <% end %>
+    <% end %>
+  </div>
+</section>
+
+<section class='layout__site__content list'>
+  <h2 class='headings--compressed'>Already Offered</h1>
+  <div class='list__card  list__card--primary-light'>
+    <div class="grid grid--gutters">
+      <div class="grid__cell">
+        Title
+      </div>
+      <div class="grid__cell">
+        Author
+      </div>
+    </div>
+    <% @books_offered.each do |book|  %>
+      <%= link_to new_book_offer_path(book) do %>
+        <div class="grid grid--gutters">
+          <div class="grid__cell">
+            <%= book.title %>
+          </div>
+          <div class="grid__cell">
+            <%= book.author %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% if @books_offered.empty? %>
+     <p>Books you have already offered will appear here. You are not offering any books. You are feeling guilty, it will pass.</p>
     <% end %>
   </div>
 </section>
