@@ -16,5 +16,9 @@ UtilityFunction:
   exclude:
   - Authorize
 
+TooManyStatements:
+  exclude:
+    - create_account_and_login
+
 exclude_paths:
  - db/migrate/**/*
