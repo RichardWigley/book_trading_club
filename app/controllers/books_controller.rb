@@ -6,9 +6,6 @@ class BooksController < ApplicationController
   after_action :verify_authorized
 
   def index
-    search = params[:search]
-    @books = Book.where(nil)
-    @books = Book.search_for(search) if search.present?
     authorize Book
   end
 end

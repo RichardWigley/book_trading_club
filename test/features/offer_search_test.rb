@@ -1,11 +1,12 @@
 require "test_helper"
 
-class BookSearchTest < Capybara::Rails::TestCase
+class OfferSearchTest < Capybara::Rails::TestCase
   test "returns books in the library" do
     create_account_and_login
     Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    click_on('Offer', match: :first)
 
-    assert_equal('Library - BookTradingClub', page.title)
+    assert_equal('Offer - BookTradingClub', page.title)
     fill_in 'search', with: 'Tha'
     click_on 'Search'
     page.must_have_content('William Makepeace Thackeray')
@@ -14,8 +15,9 @@ class BookSearchTest < Capybara::Rails::TestCase
   test "returns all books in the library if no search term" do
     create_account_and_login
     Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    click_on('Offer', match: :first)
 
-    assert_equal('Library - BookTradingClub', page.title)
+    assert_equal('Offer - BookTradingClub', page.title)
     fill_in 'search', with: ''
     click_on 'Search'
     page.must_have_content('William Makepeace Thackeray')
@@ -24,8 +26,9 @@ class BookSearchTest < Capybara::Rails::TestCase
   test "returns nothing if book not in library" do
     create_account_and_login
     Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    click_on('Offer', match: :first)
 
-    assert_equal('Library - BookTradingClub', page.title)
+    assert_equal('Offer - BookTradingClub', page.title)
     fill_in 'search', with: 'Hobbit'
     click_on 'Search'
     page.must_have_content('There are no books containing the term(s) Hobbit')
