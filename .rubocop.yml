@@ -19,6 +19,7 @@ Lint/AssignmentInCondition:
 Metrics/AbcSize:
   Exclude:
     - 'app/controllers/offers_controller.rb'
+    - 'app/controllers/wants_controller.rb'
 
 # Offense count: 27
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes.

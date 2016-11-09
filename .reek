@@ -3,6 +3,10 @@ DataClump:
   exclude:
   - Authorize
 
+DuplicateMethodCall:
+  exclude:
+  - WantsController#create
+
 InstanceVariableAssumption:
   exclude:
   - OffersController

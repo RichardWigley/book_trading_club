@@ -22,6 +22,9 @@ class WantsController < ApplicationController
     want = current_account.wants.build(book_id: params[:book_id])
     if want.save
       redirect_to wants_path, notice: "#{want.book.title}, is now wanted"
+    else
+      @book = Book.find(params[:book_id])
+      render :new
     end
     authorize want
   end
