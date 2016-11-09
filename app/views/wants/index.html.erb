@@ -14,7 +14,7 @@
       </div>
     </div>
     <% @books_search.each do |book|  %>
-      <%= link_to new_book_offer_path(book) do %>
+      <%= link_to new_book_want_path(book) do %>
         <div class="grid grid--gutters">
           <div class="grid__cell">
             <%= book.title %>
