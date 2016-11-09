@@ -15,6 +15,7 @@ IrresponsibleModule:
   - ApplicationJob
   - BookTradingClub::Application
   - OfferTest
+  - WantTest
 
 UtilityFunction:
   exclude:
