@@ -6,6 +6,6 @@ class WantIndexTest < Capybara::Rails::TestCase
     click_on('Want', match: :first)
 
     assert_equal('Want - BookTradingClub', page.title)
-    page.must_have_content('Enter a search for the book you want and the results appear here')
+    page.must_have_content('Enter a search and the results appear here')
   end
 end

@@ -1,4 +1,36 @@
 <% content_for :title, 'Want' %>
 <h1 class='headings--compressed'>Want</h1>
 
-Enter a search for the book you want and the results appear here
+<%= render 'books/search', { path: wants_path } %>
+
+<section class='layout__site__content list  u-margin-bottom'>
+  <div class='list__card  list__card--primary-light'>
+    <div class="grid grid--gutters">
+      <div class="grid__cell">
+        Title
+      </div>
+      <div class="grid__cell">
+        Author
+      </div>
+    </div>
+    <% @books_search.each do |book|  %>
+      <%= link_to new_book_offer_path(book) do %>
+        <div class="grid grid--gutters">
+          <div class="grid__cell">
+            <%= book.title %>
+          </div>
+          <div class="grid__cell">
+            <%= book.author %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% if @books_search.empty? %>
+      <% if params[:search] %>
+        <p>There are no books containing the term(s) "<%= params[:search] %>". Enter another search.</p>
+      <% else %>
+        <p>Enter a search and the results appear here</p>
+      <% end %>
+    <% end %>
+  </div>
+</section>
