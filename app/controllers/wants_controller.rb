@@ -35,4 +35,11 @@ class WantsController < ApplicationController
     @want = Want.includes(:book).find(params[:id])
     authorize @want
   end
+
+  def destroy
+    want = Want.find(params[:id])
+    want.destroy
+    redirect_to wants_path, notice: "Want withdrawn for #{want.book.title}"
+    authorize want
+  end
 end

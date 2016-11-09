@@ -17,4 +17,8 @@ class WantPolicy < ApplicationPolicy
   def show?
     resource.account_id == account.id
   end
+
+  def destroy?
+    resource.account_id == account.id
+  end
 end
