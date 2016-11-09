@@ -20,5 +20,6 @@ class AccountShowTest < Capybara::Rails::TestCase
     click_on 'Log out'
 
     assert_equal('Log Out - BookTradingClub', page.title)
+    page.must_have_content('Signed out successfully')
   end
 end
