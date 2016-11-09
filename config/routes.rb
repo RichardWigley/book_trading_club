@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :wants, only: [:new, :create]
   end
   resources :offers, only: [:index, :show, :destroy]
-  resources :wants, only: [:index]
+  resources :wants, only: [:index, :show]
 
   devise_for :accounts
 end

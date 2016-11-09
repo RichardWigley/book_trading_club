@@ -10,6 +10,7 @@ DuplicateMethodCall:
 InstanceVariableAssumption:
   exclude:
   - OffersController
+  - WantsController
 
 IrresponsibleModule:
   exclude:

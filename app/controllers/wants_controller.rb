@@ -30,4 +30,9 @@ class WantsController < ApplicationController
     end
     authorize want
   end
+
+  def show
+    @want = Want.includes(:book).find(params[:id])
+    authorize @want
+  end
 end

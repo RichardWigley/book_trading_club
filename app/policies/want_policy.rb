@@ -13,4 +13,8 @@ class WantPolicy < ApplicationPolicy
   def create?
     resource.account_id == account.id
   end
+
+  def show?
+    resource.account_id == account.id
+  end
 end
