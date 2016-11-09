@@ -9,6 +9,8 @@ class WantsController < ApplicationController
     search = params[:search]
     @books_search = Book.none
     @books_search = Book.search_for(search) if search.present?
+
+    @wants_outstanding = Want.includes(:book).by_account(current_account)
     authorize Want
   end
 
