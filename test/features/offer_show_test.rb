@@ -8,7 +8,7 @@ class OfferShowTest < Capybara::Rails::TestCase
     click_on('Offer', match: :first)
 
     assert_equal('Offer - BookTradingClub', page.title)
-    click_on('Vanity Fair')
+    page.must_have_content('Vanity Fair')
   end
 
   test "it can withdraw an offer" do
