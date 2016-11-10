@@ -25,7 +25,7 @@ class OffersController < ApplicationController
     if offer.save
       redirect_to offers_path, notice: "#{offer.book.title}, has been offered"
     else
-      @book = Book.find(parms[:book_id])
+      @book = Book.find(params[:book_id])
       render :new
     end
     authorize offer
