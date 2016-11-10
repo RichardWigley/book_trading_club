@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: offers
+#
+#  id         :integer          not null, primary key
+#  account_id :integer
+#  book_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Offer
 #  - relationship that details that an account is offering a book for loan
 #

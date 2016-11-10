@@ -51,6 +51,9 @@ GEM
     addressable (2.4.0)
     airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arel (7.1.2)
     ast (2.3.0)
     axiom-types (0.1.1)
@@ -293,6 +296,7 @@ PLATFORMS
 DEPENDENCIES
   active_link_to (~> 1.0.0)
   airbrussh (~> 1.1.0)
+  annotate (~> 2.7.0)
   brakeman (~> 3.3.0)
   bullet (~> 5.4.0)
   byebug

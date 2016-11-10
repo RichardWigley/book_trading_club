@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: wants
+#
+#  id         :integer          not null, primary key
+#  book_id    :integer
+#  account_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Want
 #  - details an account wanting a book
 #
