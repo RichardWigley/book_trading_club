@@ -4,6 +4,7 @@
 <%= @offer.book.title %><br>
 <%= @offer.book.author %>
 <%= form_for(@offer, url: book_offers_path, method: 'post') do %>
+  <%= render('form_errors', object: @offer) if @offer.errors.any? %>
   <%= button_tag(class: 'input-add-on__field  input-add-on__field--secondary--1') do %>
     <%= fa_icon('plus') %>
     Make Offer

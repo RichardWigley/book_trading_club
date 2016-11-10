@@ -29,6 +29,7 @@ Metrics/LineLength:
   Exclude:
     - 'config/environments/*'
     - 'config/initializers/*'
+    - 'test/models/offer_test.rb'
     - 'test/support/authorize.rb'
 
 # Offense count: 1

@@ -17,4 +17,5 @@ class Want < ApplicationRecord
   belongs_to :account
 
   scope :by_account, ->(account) { where(account_id: account.id) }
+  scope :by_book, ->(book) { where(book_id: book.id) }
 end

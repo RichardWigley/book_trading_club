@@ -26,6 +26,7 @@ IrresponsibleModule:
 UtilityFunction:
   exclude:
   - Authorize
+  - OfferTest#account_create
 
 TooManyStatements:
   exclude:
