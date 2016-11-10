@@ -15,20 +15,19 @@ class OffersController < ApplicationController
   end
 
   def new
-    @book = Book.find(params[:book_id])
-    offer = Offer.new(account_id: current_account.id)
-    authorize offer
+    book = Book.find(params[:book_id])
+    @offer = Offer.new(account_id: current_account.id, book_id: book.id)
+    authorize @offer
   end
 
   def create
-    offer = current_account.offers.build(book_id: params[:book_id])
-    if offer.save
-      redirect_to offers_path, notice: "#{offer.book.title}, has been offered"
+    @offer = current_account.offers.build(book_id: params[:book_id])
+    if @offer.save
+      redirect_to offers_path, notice: "#{@offer.book.title}, has been offered"
     else
-      @book = Book.find(params[:book_id])
       render :new
     end
-    authorize offer
+    authorize @offer
   end
 
   def show

@@ -1,10 +1,9 @@
 <% content_for :title, 'Make Offer' %>
 <h1 class='headings--compressed'>New Offer</h1>
 
-<%= @book.title %><br>
-<%= @book.author %>
-
-<%= form_tag(book_offers_path(@book), method: 'post') do %>
+<%= @offer.book.title %><br>
+<%= @offer.book.author %>
+<%= form_for(@offer, url: book_offers_path, method: 'post') do %>
   <%= button_tag(class: 'input-add-on__field  input-add-on__field--secondary--1') do %>
     <%= fa_icon('plus') %>
     Make Offer
