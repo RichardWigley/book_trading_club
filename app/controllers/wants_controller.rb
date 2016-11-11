@@ -16,7 +16,7 @@ class WantsController < ApplicationController
 
   def new
     book = Book.find(params[:book_id])
-    @want = Want.new(account_id: current_account.id, book_id: book.id)
+    @want = Want.new(account: current_account, book: book)
     authorize @want
   end
 

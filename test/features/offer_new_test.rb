@@ -23,7 +23,7 @@ class OfferNewTest < Capybara::Rails::TestCase
   test "errors are displayed" do
     account = create_account_and_login
     book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
-    Want.create(book_id: book.id, account_id: account.id)
+    Want.create(book: book, account: account)
 
     click_on('Offer', match: :first)
     assert_equal('Offer - BookTradingClub', page.title)

@@ -4,7 +4,7 @@ class OfferShowTest < Capybara::Rails::TestCase
   test "displays any offered books" do
     account = create_account_and_login
     book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
-    Offer.create(book_id: book.id, account_id: account.id)
+    Offer.create(book: book, account: account)
     click_on('Offer', match: :first)
 
     assert_equal('Offer - BookTradingClub', page.title)
@@ -14,7 +14,7 @@ class OfferShowTest < Capybara::Rails::TestCase
   test "it can withdraw an offer" do
     account = create_account_and_login
     book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
-    Offer.create(book_id: book.id, account_id: account.id)
+    Offer.create(book: book, account: account)
     click_on('Offer', match: :first)
 
     assert_equal('Offer - BookTradingClub', page.title)
