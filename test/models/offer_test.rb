@@ -14,7 +14,7 @@ require "test_helper"
 class OfferTest < ActiveSupport::TestCase
   test "valid if we do not want the book" do
     account = account_create
-    book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    book = Book.create(title: 'Emma', author: 'Jane Austin')
 
     offer = Offer.new(account: account, book: book)
     assert offer.valid?, 'Must be valid if we do not want the book'
@@ -22,7 +22,7 @@ class OfferTest < ActiveSupport::TestCase
 
   test "invalid if we already want the book" do
     account = account_create
-    book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    book = Book.create(title: 'Emma', author: 'Jane Austin')
     Want.create(account: account, book: book)
 
     offer = Offer.new(account: account, book: book)

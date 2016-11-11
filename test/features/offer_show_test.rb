@@ -3,27 +3,27 @@ require 'test_helper'
 class OfferShowTest < Capybara::Rails::TestCase
   test "displays any offered books" do
     account = create_account_and_login
-    book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    book = Book.create(title: 'Emma', author: 'Jane Austin')
     Offer.create(book: book, account: account)
     click_on('Offer', match: :first)
 
     assert_equal('Offer - BookTradingClub', page.title)
-    page.must_have_content('Vanity Fair')
+    page.must_have_content('Emma')
   end
 
   test "it can withdraw an offer" do
     account = create_account_and_login
-    book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    book = Book.create(title: 'Emma', author: 'Jane Austin')
     Offer.create(book: book, account: account)
     click_on('Offer', match: :first)
 
     assert_equal('Offer - BookTradingClub', page.title)
-    click_on('Vanity Fair')
+    click_on('Emma')
 
     assert_equal('Show Offer - BookTradingClub', page.title)
     click_on('Withdraw Offer')
 
     assert_equal('Offer - BookTradingClub', page.title)
-    page.must_have_content('Offer withdrawn for Vanity Fair')
+    page.must_have_content('Offer withdrawn for Emma')
   end
 end

@@ -11,12 +11,12 @@ class OfferIndexTest < Capybara::Rails::TestCase
 
   test "displays any offered books" do
     account = create_account_and_login
-    book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    book = Book.create(title: 'Emma', author: 'Jane Austin')
     Offer.create(book: book, account: account)
     click_on('Offer', match: :first)
 
     assert_equal('Offer - BookTradingClub', page.title)
-    page.must_have_content('Vanity Fair')
+    page.must_have_content('Emma')
   end
 
   test "reminds account when they are not offering any books" do

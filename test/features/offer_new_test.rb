@@ -2,36 +2,36 @@ require "test_helper"
 
 class OfferNewTest < Capybara::Rails::TestCase
   test "can make an offer" do
-    Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login
 
     click_on('Offer', match: :first)
     assert_equal('Offer - BookTradingClub', page.title)
 
-    fill_in 'search', with: 'Vanity Fair'
+    fill_in 'search', with: 'Emma'
     click_on 'Search'
 
-    click_on('Vanity Fair')
+    click_on('Emma')
 
     assert_equal('Make Offer - BookTradingClub', page.title)
     click_on('Make Offer')
 
     assert_equal('Offer - BookTradingClub', page.title)
-    page.must_have_content('Vanity Fair, has been offered')
+    page.must_have_content('Emma, has been offered')
   end
 
   test "errors are displayed" do
     account = create_account_and_login
-    book = Book.create(title: 'Vanity Fair', author: 'William Makepeace Thackeray')
+    book = Book.create(title: 'Emma', author: 'Jane Austin')
     Want.create(book: book, account: account)
 
     click_on('Offer', match: :first)
     assert_equal('Offer - BookTradingClub', page.title)
 
-    fill_in 'search', with: 'Vanity Fair'
+    fill_in 'search', with: 'Emma'
     click_on 'Search'
 
-    click_on('Vanity Fair')
+    click_on('Emma')
 
     assert_equal('Make Offer - BookTradingClub', page.title)
     click_on('Make Offer')
