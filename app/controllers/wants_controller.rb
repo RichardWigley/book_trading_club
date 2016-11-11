@@ -15,20 +15,19 @@ class WantsController < ApplicationController
   end
 
   def new
-    @book = Book.find(params[:book_id])
-    want = Want.new(account_id: current_account.id)
-    authorize want
+    book = Book.find(params[:book_id])
+    @want = Want.new(account_id: current_account.id, book_id: book.id)
+    authorize @want
   end
 
   def create
-    want = current_account.wants.build(book_id: params[:book_id])
-    if want.save
-      redirect_to wants_path, notice: "#{want.book.title}, is now wanted"
+    @want = current_account.wants.build(book_id: params[:book_id])
+    if @want.save
+      redirect_to wants_path, notice: "#{@want.book.title}, is now wanted"
     else
-      @book = Book.find(params[:book_id])
       render :new
     end
-    authorize want
+    authorize @want
   end
 
   def show

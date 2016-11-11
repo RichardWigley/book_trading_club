@@ -1,10 +1,11 @@
 <% content_for :title, 'Create Want' %>
 <h1 class='headings--compressed'>Create Want</h1>
 
-<%= @book.title %><br>
-<%= @book.author %>
+<%= @want.book.title %><br>
+<%= @want.book.author %>
 
-<%= form_tag(book_wants_path(@book), method: 'post') do %>
+<%= form_for(@want, url: book_wants_path, method: 'post') do %>
+  <%= render('form_errors', object: @want) if @want.errors.any? %>
   <%= button_tag(class: 'input-add-on__field  input-add-on__field--secondary--1') do %>
     <%= fa_icon('plus') %>
     Create Want
