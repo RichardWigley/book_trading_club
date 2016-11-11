@@ -13,6 +13,7 @@
 #  - details an account wanting a book
 #
 class Want < ApplicationRecord
+  has_one :trade
   belongs_to :book
   belongs_to :account
   validate :account_already_offers_book

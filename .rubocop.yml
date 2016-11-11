@@ -30,6 +30,7 @@ Metrics/LineLength:
     - 'config/environments/*'
     - 'config/initializers/*'
     - 'test/models/offer_test.rb'
+    - 'test/models/trade_test.rb'
     - 'test/models/want_test.rb'
     - 'test/support/authorize.rb'
 

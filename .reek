@@ -21,17 +21,20 @@ IrresponsibleModule:
   - ApplicationJob
   - BookTradingClub::Application
   - OfferTest
+  - TradeTest
   - WantTest
 
 UtilityFunction:
   exclude:
   - Authorize
   - OfferTest#account_create
+  - TradeTest#account_create
   - WantTest#account_create
 
 TooManyStatements:
   exclude:
     - create_account_and_login
+    - TradeTest#setup 
 
 exclude_paths:
  - db/migrate/**/*

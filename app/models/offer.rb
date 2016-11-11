@@ -13,6 +13,7 @@
 #  - relationship that details that an account is offering a book for loan
 #
 class Offer < ApplicationRecord
+  has_one :trade
   belongs_to :account
   belongs_to :book
   validate :account_already_wants_book
