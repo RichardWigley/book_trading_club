@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
   after_action :verify_authorized
 
   def show
+    @trades = []
     authorize Account
   end
 end
