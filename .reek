@@ -1,4 +1,9 @@
 ---
+Attribute:
+  exclude:
+  - BuildOfferTrade#offer
+  - BuildOfferTrade#trade
+
 DataClump:
   exclude:
   - Authorize
