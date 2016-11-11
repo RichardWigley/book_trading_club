@@ -27,6 +27,7 @@ UtilityFunction:
   exclude:
   - Authorize
   - OfferTest#account_create
+  - WantTest#account_create
 
 TooManyStatements:
   exclude:

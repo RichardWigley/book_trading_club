@@ -15,6 +15,13 @@
 class Want < ApplicationRecord
   belongs_to :book
   belongs_to :account
+  validate :account_already_offers_book
+
+  def account_already_offers_book
+    return if account.offers.by_book(book).empty?
+
+    errors.add(:already_offers_the_book, '- You cannot want a book that you offer.')
+  end
 
   scope :by_account, ->(account) { where(account_id: account.id) }
   scope :by_book, ->(book) { where(book_id: book.id) }
