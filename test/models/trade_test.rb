@@ -39,7 +39,7 @@ class TradeTest < ActiveSupport::TestCase
     assert_not_nil @trade.errors[:want], 'no validation error for want present'
   end
 
-  def account_create(email: 'user@example.com', password: 'password', password_confirmation: 'password')
-    Account.create(email: email, password: password, password_confirmation: password_confirmation)
+  def account_create(email: 'user@example.com', password: 'password')
+    Account.create(email: email, password: password, password_confirmation: password)
   end
 end
