@@ -14,6 +14,7 @@
 #
 class Book < ApplicationRecord
   has_many :offers
+  has_many :wants
   include PgSearch
   validates :author, :title, presence: true
 
