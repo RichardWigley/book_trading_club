@@ -1,4 +1,4 @@
-# BuildTradeOffer
+# BuildOfferTrade
 #  - build a trade object starting with offer and a book
 #
 class BuildOfferTrade
