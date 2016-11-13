@@ -28,6 +28,20 @@ class WantTest < ActiveSupport::TestCase
                     'Must be invalid for already offering the book'
   end
 
+  test ".untraded scope returns wants without trades" do
+    offer = account_create(email: 'offer@example.com').wants.create(book: book)
+
+    assert_includes Want.untraded.to_a, offer
+  end
+
+  test ".untraded scope does not return wants with trades" do
+    offer = account_create(email: 'offer@example.com').offers.create(book: book)
+    want = account_create(email: 'want@example.com').wants.create(book: book)
+    Trade.create(offer: offer, want: want)
+
+    assert Want.untraded.to_a.empty?
+  end
+
   def account_create(email: 'user@example.com', password: 'password')
     Account.create(email: email, password: password, password_confirmation: password)
   end
