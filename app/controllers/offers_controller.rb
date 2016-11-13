@@ -10,7 +10,7 @@ class OffersController < ApplicationController
     @books_search = Book.none
     @books_search = Book.search_for(search) if search.present?
 
-    @offers_outstanding = Offer.includes(:book).by_account(current_account)
+    @offers_outstanding = current_account.offers
     authorize Offer
   end
 

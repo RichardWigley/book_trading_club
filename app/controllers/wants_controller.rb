@@ -10,7 +10,7 @@ class WantsController < ApplicationController
     @books_search = Book.none
     @books_search = Book.search_for(search) if search.present?
 
-    @wants_outstanding = Want.includes(:book).by_account(current_account)
+    @wants_outstanding = current_account.wants
     authorize Want
   end
 
