@@ -26,4 +26,5 @@ class Offer < ApplicationRecord
 
   scope :by_account, ->(account) { where(account_id: account.id) }
   scope :by_book, ->(book) { where(book_id: book.id) }
+  scope :untraded, -> { left_outer_joins(:trade).where(trades: { id: nil }) }
 end
