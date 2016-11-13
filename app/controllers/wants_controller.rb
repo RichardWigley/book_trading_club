@@ -21,7 +21,7 @@ class WantsController < ApplicationController
   end
 
   def create
-    @want = current_account.wants.build(book_id: params[:book_id])
+    @want = BuildWantTrade.new(want: current_account.wants.build(book_id: params[:book_id])).build
     if @want.save
       redirect_to wants_path, notice: "#{@want.book.title}, is now wanted"
     else

@@ -3,6 +3,8 @@ Attribute:
   exclude:
   - BuildOfferTrade#offer
   - BuildOfferTrade#trade
+  - BuildWantTrade#trade
+  - BuildWantTrade#want
 
 DataClump:
   exclude:

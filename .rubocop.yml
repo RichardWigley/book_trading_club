@@ -29,6 +29,7 @@ Metrics/LineLength:
   Max: 95
   Exclude:
     - 'app/controllers/offers_controller.rb'
+    - 'app/controllers/wants_controller.rb'
     - 'config/environments/*'
     - 'config/initializers/*'
     - 'test/models/offer_test.rb'
