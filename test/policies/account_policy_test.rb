@@ -6,4 +6,8 @@ class AccountPolicyTest < ActiveSupport::TestCase
   test "Users can be shown their account" do
     assert_permit(Account.new, :account, :show?)
   end
+
+  test "Users can be update their account" do
+    assert_permit(Account.new, :account, :update?)
+  end
 end

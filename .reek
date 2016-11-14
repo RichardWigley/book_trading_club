@@ -17,6 +17,7 @@ DuplicateMethodCall:
 
 InstanceVariableAssumption:
   exclude:
+  - AccountsController
   - OffersController
   - WantsController
 
@@ -27,6 +28,7 @@ IrresponsibleModule:
   - ApplicationHelper
   - ApplicationJob
   - BookTradingClub::Application
+  - ContactTest
   - OfferTest
   - TradeTest
   - WantTest

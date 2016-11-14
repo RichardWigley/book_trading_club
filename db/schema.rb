@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111124003) do
+ActiveRecord::Schema.define(version: 20161114142432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 20161111124003) do
     t.string   "author",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "address_line_1", null: false
+    t.string   "address_line_2"
+    t.string   "town",           null: false
+    t.string   "county"
+    t.string   "postcode"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["account_id"], name: "index_contacts_on_account_id", using: :btree
   end
 
   create_table "offers", force: :cascade do |t|
@@ -66,6 +78,7 @@ ActiveRecord::Schema.define(version: 20161111124003) do
     t.index ["book_id"], name: "index_wants_on_book_id", using: :btree
   end
 
+  add_foreign_key "contacts", "accounts"
   add_foreign_key "offers", "accounts"
   add_foreign_key "offers", "books"
   add_foreign_key "trades", "offers"

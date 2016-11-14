@@ -4,6 +4,19 @@
   <%= link_to('Log out', destroy_account_session_path) %>
 </div>
 
+<section class='layout__site__content list  u-margin-bottom'>
+  <h2 class='headings--compressed'>Trades</h1>
+  <div class='list__card  list__card--primary-light'>
+    <%= link_to edit_account_path(@account) do %>
+      <div class="grid grid--gutters">
+        <div class="grid__cell">
+          <%= @account.email %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
 <section class='layout__site__content list'>
   <h2 class='headings--compressed'>Trades</h1>
   <div class='list__card  list__card--primary-light'>
