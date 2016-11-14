@@ -3,8 +3,8 @@
 # Table name: trades
 #
 #  id         :integer          not null, primary key
-#  offer_id   :integer
-#  want_id    :integer
+#  offer_id   :integer          not null
+#  want_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
