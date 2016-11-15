@@ -19,4 +19,15 @@
 #
 class Contact < ApplicationRecord
   belongs_to :account
+
+  def to_s
+    address_lines.join("\n")
+  end
+
+  private
+
+  def address_lines
+    [full_name, address_line_1, address_line_2, town, county, postcode]
+      .reject(&:blank?)
+  end
 end
