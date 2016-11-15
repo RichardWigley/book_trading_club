@@ -9,4 +9,10 @@ module ApplicationHelper
       end
     end
   end
+
+  def show_errors(object, field_name)
+    return if object.errors.empty? && object.errors.messages[field_name].blank?
+
+    object.errors.messages[field_name].join(', ')
+  end
 end

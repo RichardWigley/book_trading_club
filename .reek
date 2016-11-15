@@ -12,6 +12,7 @@ DataClump:
 
 DuplicateMethodCall:
   exclude:
+  - ApplicationHelper#show_errors
   - OffersController#create
   - WantsController#create
 
@@ -40,6 +41,7 @@ LongParameterList:
 
 UtilityFunction:
   exclude:
+  - ApplicationHelper#show_errors
   - Authorize
   - OfferTest#account_create
   - TradeTest#account_create

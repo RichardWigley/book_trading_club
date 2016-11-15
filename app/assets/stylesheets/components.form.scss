@@ -4,6 +4,10 @@
   margin-bottom: .75em;
 }
 
+.form__field__error {
+  color: $errors-warn;
+}
+
 //
 // form__row
 //  - fill up entire row
