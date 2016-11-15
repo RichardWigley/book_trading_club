@@ -29,7 +29,6 @@ class ContactEditTest < Capybara::Rails::TestCase
   end
 
   test "can return error message" do
-    skip('Waiting for contact validation')
     create_account_and_login(email: 'user@example.com')
 
     click_on('Account', match: :first)
@@ -37,7 +36,7 @@ class ContactEditTest < Capybara::Rails::TestCase
 
     click_on('user@example.com')
     assert_equal('Edit Contact - BookTradingClub', page.title)
-    ContactPage.new.fill(address_line_1: '8 Station Road',
+    ContactPage.new.fill(address_line_1: '',
                          county: 'Kent').save
 
     page.must_have_content('error prevented the form from being saved:')

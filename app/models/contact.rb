@@ -19,6 +19,7 @@
 #
 class Contact < ApplicationRecord
   belongs_to :account
+  validates :full_name, :address_line_1, :town, presence: true, on: :complete_contact
 
   def to_s
     address_lines.join("\n")

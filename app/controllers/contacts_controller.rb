@@ -14,7 +14,8 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
 
-    if @contact.update_attributes(contact_param)
+    @contact.attributes = contact_param
+    if @contact.save(context: :complete_contact)
       redirect_to accounts_show_path, notice: 'Contact details updated'
     else
       render :edit
