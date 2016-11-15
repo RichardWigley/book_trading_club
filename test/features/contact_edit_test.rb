@@ -14,8 +14,15 @@ class ContactEditTest < Capybara::Rails::TestCase
 
     click_on('user@example.com')
     assert_equal('Edit Contact - BookTradingClub', page.title)
+    ContactPage.new.fill(full_name: 'Bo',
+                         address_line_1: '8 Station Road',
+                         address_line_2: 'Wickham',
+                         county: 'Kent',
+                         postcode: 'BR4 0PU').save
+    assert_equal("Bo\n8 Station Road\nWickham\nKent\nBR4 0PU",
+                 Account.where(email: 'user@example.com').first.contact.to_s,
+                 'Contact must be updated')
 
-    click_on('Save and Continue')
     assert_equal('Account - BookTradingClub', page.title)
   end
 end

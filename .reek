@@ -34,6 +34,10 @@ IrresponsibleModule:
   - TradeTest
   - WantTest
 
+LongParameterList:
+  exclude:
+  - ContactPage#fill
+
 UtilityFunction:
   exclude:
   - Authorize
@@ -45,6 +49,11 @@ TooManyStatements:
   exclude:
     - create_account_and_login
     - TradeTest#setup 
+    - 'ContactPage#fill'
+
+UncommunicativeParameterName:
+  exclude:
+  - 'ContactPage#fill'
 
 exclude_paths:
  - db/migrate/**/*

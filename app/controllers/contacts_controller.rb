@@ -13,7 +13,19 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:id])
-    redirect_to accounts_show_path
+
+    if @contact.update_attributes(contact_param)
+      redirect_to accounts_show_path, notice: 'Contact details updated'
+    else
+      render :edit
+    end
     authorize @contact
+  end
+
+  private
+
+  def contact_param
+    params.require(:contact)
+          .permit(:full_name, :address_line_1, :address_line_2, :county, :postcode)
   end
 end
