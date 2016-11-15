@@ -1,10 +1,10 @@
-<% content_for :title, 'Edit Account' %>
+<% content_for :title, 'Edit Contact' %>
 <h1 class='heading--compressed'>Edit Account</h1>
 
-<%= @account.email %>
+<%= @contact.account.email %>
 
-<%= form_for(@account, url: account_path, method: 'patch') do %>
-  <%= render('form_errors', object: @account) if @account.errors.any? %>
+<%= form_for(@contact, url: contact_path, method: 'patch') do %>
+  <%= render('form_errors', object: @contact) if @contact.errors.any? %>
   <%= button_tag(class: 'input-add-on__field  input-add-on__field--secondary--1') do %>
     <%= fa_icon('save') %>
     Save and Continue

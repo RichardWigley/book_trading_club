@@ -25,7 +25,12 @@ class Account < ApplicationRecord
   has_many :offers
   has_many :wants
   has_one :contact
-  accepts_nested_attributes_for :contact
+  before_create :build_default_contact
+
+  def build_default_contact
+    build_contact
+    true
+  end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

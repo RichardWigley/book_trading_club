@@ -18,6 +18,7 @@ DuplicateMethodCall:
 InstanceVariableAssumption:
   exclude:
   - AccountsController
+  - ContactsController
   - OffersController
   - WantsController
 

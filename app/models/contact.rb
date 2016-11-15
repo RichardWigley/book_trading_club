@@ -4,9 +4,9 @@
 #
 #  id             :integer          not null, primary key
 #  account_id     :integer
-#  address_line_1 :string           not null
+#  address_line_1 :string
 #  address_line_2 :string
-#  town           :string           not null
+#  town           :string
 #  county         :string
 #  postcode       :string
 #  created_at     :datetime         not null
@@ -18,6 +18,4 @@
 #
 class Contact < ApplicationRecord
   belongs_to :account
-  validates :address_line_1, presence: true
-  validates :town, presence: true
 end
