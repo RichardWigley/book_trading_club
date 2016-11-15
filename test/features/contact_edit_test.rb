@@ -17,9 +17,11 @@ class ContactEditTest < Capybara::Rails::TestCase
     ContactPage.new.fill(full_name: 'Bo',
                          address_line_1: '8 Station Road',
                          address_line_2: 'Wickham',
+                         town: 'Fareham',
                          county: 'Kent',
                          postcode: 'BR4 0PU').save
-    assert_equal("Bo\n8 Station Road\nWickham\nKent\nBR4 0PU",
+
+    assert_equal("Bo\n8 Station Road\nWickham\nFareham\nKent\nBR4 0PU",
                  Account.where(email: 'user@example.com').first.contact.to_s,
                  'Contact must be updated')
 

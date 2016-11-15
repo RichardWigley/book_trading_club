@@ -26,6 +26,6 @@ class ContactsController < ApplicationController
 
   def contact_param
     params.require(:contact)
-          .permit(:full_name, :address_line_1, :address_line_2, :county, :postcode)
+          .permit(:full_name, :address_line_1, :address_line_2, :town, :county, :postcode)
   end
 end

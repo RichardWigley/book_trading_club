@@ -36,6 +36,14 @@ Metrics/LineLength:
     - 'test/models/want_test.rb'
     - 'test/support/authorize.rb'
 
+Metrics/MethodLength:
+  Exclude:
+    - 'test/support/contact_page.rb'
+
+Metrics/ParameterLists:
+  # covered by reek
+  Enabled: false
+
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: nested, compact

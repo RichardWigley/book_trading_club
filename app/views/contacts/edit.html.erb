@@ -19,7 +19,7 @@
     <div class='form__field__error'><%= show_errors(@contact, :address_line_2) %></div>
   </div>
   <div class='form__field'>
-    <%= f.label :'Town_/_City' %>
+    <%= f.label :town, 'Town / City' %>
     <%= f.text_field :town, class: 'form__row' %>
     <div class='form__field__error'><%= show_errors(@contact, :town) %></div>
   </div>
