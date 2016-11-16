@@ -61,6 +61,15 @@ class ContactTest < ActiveSupport::TestCase
                     'Must be invalid when missing town'
   end
 
+  test "completed? is true when minimum contact information filled in" do
+    assert true, @contact.completed?
+  end
+
+  test "completed? is false when contact information is missing" do
+    @contact.town = nil
+    refute @contact.completed?
+  end
+
   test "#to_s returns all lines" do
     contact = Contact.new(full_name: 'Bo',
                           address_line_1: '8 Station Road',

@@ -23,7 +23,17 @@ require 'test_helper'
 #  - unit testing Account
 #
 class AccountTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @account ||= Account.new(email: 'user@example.com',
+                             password: 'password',
+                             password_confirmation: 'password')
+  end
+
+  test "valid" do
+    assert @account.valid?
+  end
+
+  test "responds_to completd?" do
+    assert_respond_to(@account, :completed?, 'must respond to completed?')
+  end
 end

@@ -22,6 +22,7 @@
 #  - initially created by devise
 #
 class Account < ApplicationRecord
+  extend Forwardable
   has_many :offers
   has_many :wants
   has_one :contact
@@ -31,6 +32,7 @@ class Account < ApplicationRecord
     build_contact
     true
   end
+  def_delegators :contact, :completed?
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
