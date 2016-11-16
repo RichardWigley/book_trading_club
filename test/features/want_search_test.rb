@@ -4,7 +4,7 @@ class WantSearchTest < Capybara::Rails::TestCase
   test "returns books in the library" do
     create_account_and_login
     Book.create(title: 'Emma', author: 'Jane Austin')
-    click_on('Want', match: :first)
+    Menu.new.visit_want
 
     assert_equal('Want - BookTradingClub', page.title)
     fill_in 'search', with: 'Aust'
@@ -16,7 +16,7 @@ class WantSearchTest < Capybara::Rails::TestCase
   test "if no search term it gives user the appropriate action" do
     create_account_and_login
     Book.create(title: 'Emma', author: 'Jane Austin')
-    click_on('Want', match: :first)
+    Menu.new.visit_want
 
     assert_equal('Want - BookTradingClub', page.title)
     fill_in 'search', with: ''
@@ -28,7 +28,7 @@ class WantSearchTest < Capybara::Rails::TestCase
   test "returns nothing if book not in library" do
     create_account_and_login
     Book.create(title: 'Emma', author: 'Jane Austin')
-    click_on('Want', match: :first)
+    Menu.new.visit_want
 
     assert_equal('Want - BookTradingClub', page.title)
     fill_in 'search', with: 'Hobbit'

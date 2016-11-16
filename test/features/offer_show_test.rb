@@ -5,7 +5,7 @@ class OfferShowTest < Capybara::Rails::TestCase
     account = create_account_and_login
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     Offer.create(book: book, account: account)
-    click_on('Offer', match: :first)
+    Menu.new.visit_offer
 
     assert_equal('Offer - BookTradingClub', page.title)
     page.must_have_content('Emma')
@@ -15,7 +15,7 @@ class OfferShowTest < Capybara::Rails::TestCase
     account = create_account_and_login
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     Offer.create(book: book, account: account)
-    click_on('Offer', match: :first)
+    Menu.new.visit_offer
 
     assert_equal('Offer - BookTradingClub', page.title)
     click_on('Emma')

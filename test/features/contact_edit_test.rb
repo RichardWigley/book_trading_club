@@ -9,7 +9,7 @@ class ContactEditTest < Capybara::Rails::TestCase
   test "can edit contact information" do
     create_account_and_login(email: 'user@example.com')
 
-    click_on('Account', match: :first)
+    Menu.new.visit_account
     assert_equal('Account - BookTradingClub', page.title)
 
     click_on('user@example.com')
@@ -31,7 +31,7 @@ class ContactEditTest < Capybara::Rails::TestCase
   test "can return error message" do
     create_account_and_login(email: 'user@example.com')
 
-    click_on('Account', match: :first)
+    Menu.new.visit_account
     assert_equal('Account - BookTradingClub', page.title)
 
     click_on('user@example.com')

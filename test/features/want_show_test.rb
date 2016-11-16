@@ -5,7 +5,7 @@ class WantShowTest < Capybara::Rails::TestCase
     account = create_account_and_login
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     Want.create(book: book, account: account)
-    click_on('Want', match: :first)
+    Menu.new.visit_want
 
     assert_equal('Want - BookTradingClub', page.title)
     page.must_have_content('Emma')
@@ -15,7 +15,7 @@ class WantShowTest < Capybara::Rails::TestCase
     account = create_account_and_login
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     Want.create(book: book, account: account)
-    click_on('Want', match: :first)
+    Menu.new.visit_want
 
     assert_equal('Want - BookTradingClub', page.title)
     click_on('Emma')

@@ -5,7 +5,7 @@ class WantNewTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_with_contact_and_login
 
-    click_on('Want', match: :first)
+    Menu.new.visit_want
     assert_equal('Want - BookTradingClub', page.title)
 
     fill_in 'search', with: 'Emma'
@@ -24,7 +24,7 @@ class WantNewTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login
 
-    click_on('Want', match: :first)
+    Menu.new.visit_want
     assert_equal('Want - BookTradingClub', page.title)
 
     fill_in 'search', with: 'Emma'
@@ -52,7 +52,7 @@ class WantNewTest < Capybara::Rails::TestCase
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     Offer.create(book: book, account: account)
 
-    click_on('Want', match: :first)
+    Menu.new.visit_want
     assert_equal('Want - BookTradingClub', page.title)
 
     fill_in 'search', with: 'Emma'

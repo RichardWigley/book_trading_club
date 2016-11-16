@@ -11,7 +11,7 @@ class LogoNavigationTest < Capybara::Rails::TestCase
   test "with login - site logo navigates back to library" do
     create_account_and_login
 
-    click_on('Account', match: :first)
+    Menu.new.visit_account
     assert_equal('Account - BookTradingClub', page.title)
 
     click_on 'ROE'
