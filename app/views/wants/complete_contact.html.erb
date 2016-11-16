@@ -1,0 +1,15 @@
+<% content_for :title, 'Complete Contact' %>
+
+<section class='layout__site__content list  u-margin-bottom'>
+  <h1 class='headings--compressed'>Complete Contact</h1>
+  <div class='list__card  list__card--primary-light'>
+    In order to send "<%= @want.book.title %>" to you will need to fill out a contact form.
+  </div>
+</section>
+
+<%= link_to edit_contact_path(@want.account.contact), class: 'button  button__secondary--1' do %>
+  <div class='menu__item'>
+    <%= fa_icon('edit') %>
+    Complete Contact Form
+  </div>
+<% end %>

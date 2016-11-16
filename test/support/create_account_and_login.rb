@@ -9,3 +9,24 @@ def create_account_and_login(email: 'user@example.com', password: 'secret')
   click_on 'Log in'
   account
 end
+
+def create_account_with_contact_and_login(email: 'user@example.com',
+                                          password: 'secret',
+                                          full_name: 'Bo',
+                                          address_line_1: '8 Station Road',
+                                          town: 'Wickham')
+  account = create_account_and_login(email: email, password: password)
+
+  # I wanted to create the contact at the same time as the account
+  # but that hasn't worked out. So I visited the page and filled it
+  # in instead.
+  click_on('Account', match: :first)
+  click_on('user@example.com')
+  ContactPage.new.fill(full_name: full_name,
+                       address_line_1: address_line_1,
+                       address_line_2: '',
+                       town: town,
+                       county: '',
+                       postcode: '').save
+  account
+end

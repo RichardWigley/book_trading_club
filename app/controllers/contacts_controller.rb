@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
 
     @contact.attributes = contact_param
     if @contact.save(context: :complete_contact)
-      redirect_to accounts_show_path, notice: 'Contact details updated'
+      session[:book_wanted] ? redirect_to_wanted_book : redirect_nothing_sought
     else
       render :edit
     end
@@ -28,5 +28,13 @@ class ContactsController < ApplicationController
   def contact_param
     params.require(:contact)
           .permit(:full_name, :address_line_1, :address_line_2, :town, :county, :postcode)
+  end
+
+  def redirect_to_wanted_book
+    redirect_to session[:book_wanted], notice: 'Contact details updated'
+  end
+
+  def redirect_nothing_sought
+    redirect_to accounts_show_path, notice: 'Contact details updated'
   end
 end

@@ -17,6 +17,12 @@ class WantsController < ApplicationController
   def new
     book = Book.find(params[:book_id])
     @want = Want.new(account: current_account, book: book)
+    if current_account.completed?
+      session[:book_wanted] = nil
+    else
+      session[:book_wanted] = new_book_want_path(book)
+      render :complete_contact
+    end
     authorize @want
   end
 

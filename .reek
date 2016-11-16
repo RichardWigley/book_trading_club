@@ -37,6 +37,7 @@ IrresponsibleModule:
 
 LongParameterList:
   exclude:
+  - create_account_with_contact_and_login
   - ContactPage#fill
 
 UtilityFunction:
@@ -49,12 +50,15 @@ UtilityFunction:
 
 TooManyStatements:
   exclude:
+    - ContactsController#update
     - create_account_and_login
     - TradeTest#setup 
     - ContactPage#fill
+    - WantsController#new
 
 UncommunicativeParameterName:
   exclude:
+  - create_account_with_contact_and_login
   - ContactPage#fill
 
 exclude_paths:
