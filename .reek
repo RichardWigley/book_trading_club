@@ -51,11 +51,11 @@ TooManyStatements:
   exclude:
     - create_account_and_login
     - TradeTest#setup 
-    - 'ContactPage#fill'
+    - ContactPage#fill
 
 UncommunicativeParameterName:
   exclude:
-  - 'ContactPage#fill'
+  - ContactPage#fill
 
 exclude_paths:
  - db/migrate/**/*
