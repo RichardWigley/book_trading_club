@@ -4,7 +4,6 @@ class OfferNewTest < Capybara::Rails::TestCase
   test "can make an offer" do
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login
-
     ApplicationLayout.new.visit_offer
     OffersPage.new(page).query('Emma').submit.select('Emma')
 
@@ -17,7 +16,6 @@ class OfferNewTest < Capybara::Rails::TestCase
   test "errors are displayed" do
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login.wants.create(book: book)
-
     ApplicationLayout.new.visit_offer
     OffersPage.new(page).query('Emma').submit.select('Emma')
 

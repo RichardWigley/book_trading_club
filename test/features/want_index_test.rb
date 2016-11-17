@@ -3,6 +3,7 @@ require 'test_helper'
 class WantIndexTest < Capybara::Rails::TestCase
   test "greets visitor with action to perform" do
     create_account_and_login
+
     ApplicationLayout.new.visit_want
 
     assert_equal('Want - BookTradingClub', page.title)
@@ -12,6 +13,7 @@ class WantIndexTest < Capybara::Rails::TestCase
   test "displays any wanted books" do
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login.wants.create(book: book)
+
     ApplicationLayout.new.visit_want
 
     assert_equal('Want - BookTradingClub', page.title)
@@ -30,7 +32,6 @@ class WantIndexTest < Capybara::Rails::TestCase
   test "it can withdraw a wanted" do
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login.wants.create(book: book)
-
     ApplicationLayout.new.visit_want
     WantsPage.new(page).select('Emma')
 

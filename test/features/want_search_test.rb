@@ -2,8 +2,8 @@ require 'test_helper'
 
 class WantSearchTest < Capybara::Rails::TestCase
   test "returns books in the library" do
-    create_account_and_login
     Book.create(title: 'Emma', author: 'Jane Austin')
+    create_account_and_login
     ApplicationLayout.new.visit_want
 
     WantsPage.new(page).query('Aust').submit
@@ -12,8 +12,8 @@ class WantSearchTest < Capybara::Rails::TestCase
   end
 
   test "if no search term it gives user the appropriate action" do
-    create_account_and_login
     Book.create(title: 'Emma', author: 'Jane Austin')
+    create_account_and_login
     ApplicationLayout.new.visit_want
 
     WantsPage.new(page).query('').submit
@@ -25,7 +25,6 @@ class WantSearchTest < Capybara::Rails::TestCase
   test "returns nothing if book not in library" do
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login
-
     ApplicationLayout.new.visit_want
 
     WantsPage.new(page).query('Hobbit').submit

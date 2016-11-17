@@ -17,7 +17,6 @@ class WantNewTest < Capybara::Rails::TestCase
   test "redirects to complete profile" do
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login
-
     ApplicationLayout.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
@@ -38,7 +37,6 @@ class WantNewTest < Capybara::Rails::TestCase
   test "errors are displayed" do
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_with_contact_and_login(page).offers.create(book: book)
-
     ApplicationLayout.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
