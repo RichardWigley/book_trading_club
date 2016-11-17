@@ -7,8 +7,7 @@ class WantNewTest < Capybara::Rails::TestCase
     ApplicationLayout.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
-    assert_equal('Create Want - BookTradingClub', page.title)
-    click_on('Create Want')
+    WantNewPage.new(page).want
 
     assert_equal('Want - BookTradingClub', page.title)
     page.must_have_content('Emma, is now wanted')
@@ -27,8 +26,7 @@ class WantNewTest < Capybara::Rails::TestCase
                                address_line_1: '8 Station Road',
                                town: 'Fareham').save
 
-    assert_equal('Create Want - BookTradingClub', page.title)
-    click_on('Create Want')
+    WantNewPage.new(page).want
 
     assert_equal('Want - BookTradingClub', page.title)
     page.must_have_content('Emma, is now wanted')
@@ -40,10 +38,8 @@ class WantNewTest < Capybara::Rails::TestCase
     ApplicationLayout.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
-    assert_equal('Create Want - BookTradingClub', page.title)
-    click_on('Create Want')
+    WantNewPage.new(page).want
 
     page.must_have_content('error prevented the form from being saved')
-    page.must_have_content('Already offers the book')
   end
 end
