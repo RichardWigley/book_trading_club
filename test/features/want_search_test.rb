@@ -6,8 +6,7 @@ class WantSearchTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
     Menu.new.visit_want
 
-    assert_equal('Want - BookTradingClub', page.title)
-    Search.new.query('Aust').submit
+    WantsPage.new(page).query('Aust').submit
 
     page.must_have_content('Jane Austin')
   end
@@ -17,8 +16,7 @@ class WantSearchTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
     Menu.new.visit_want
 
-    assert_equal('Want - BookTradingClub', page.title)
-    Search.new.query('').submit
+    WantsPage.new(page).query('').submit
 
     page.must_have_content('There are no books containing the term(s) "".' \
                            ' Enter another search.')
@@ -29,8 +27,7 @@ class WantSearchTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
     Menu.new.visit_want
 
-    assert_equal('Want - BookTradingClub', page.title)
-    Search.new.query('Hobbit').submit
+    WantsPage.new(page).query('Hobbit').submit
 
     page.must_have_content('There are no books containing the term(s) "Hobbit"')
   end

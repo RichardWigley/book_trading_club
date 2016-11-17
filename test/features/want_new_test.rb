@@ -4,13 +4,8 @@ class WantNewTest < Capybara::Rails::TestCase
   test "can make a want" do
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_with_contact_and_login
-
     Menu.new.visit_want
-    assert_equal('Want - BookTradingClub', page.title)
-
-    Search.new.query('Emma').submit
-
-    click_on('Emma')
+    WantsPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Create Want - BookTradingClub', page.title)
     click_on('Create Want')
@@ -24,11 +19,7 @@ class WantNewTest < Capybara::Rails::TestCase
     create_account_and_login
 
     Menu.new.visit_want
-    assert_equal('Want - BookTradingClub', page.title)
-
-    Search.new.query('Emma').submit
-
-    click_on('Emma')
+    WantsPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Complete Contact - BookTradingClub', page.title)
     click_on('Complete Contact Form')
@@ -46,16 +37,11 @@ class WantNewTest < Capybara::Rails::TestCase
   end
 
   test "errors are displayed" do
-    account = create_account_with_contact_and_login
     book = Book.create(title: 'Emma', author: 'Jane Austin')
-    Offer.create(book: book, account: account)
+    create_account_with_contact_and_login.offers.create(book: book)
 
     Menu.new.visit_want
-    assert_equal('Want - BookTradingClub', page.title)
-
-    Search.new.query('Emma').submit
-
-    click_on('Emma')
+    WantsPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Create Want - BookTradingClub', page.title)
     click_on('Create Want')
