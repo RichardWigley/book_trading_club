@@ -6,14 +6,16 @@ require 'test_helper'
 class LoggedOutTest < Capybara::Rails::TestCase
   test "user can navigate to log in" do
     visit logged_out_path
-    click_on 'Log in'
+
+    LoggedOutPage.new(page).login
 
     assert_equal('Log In - BookTradingClub', page.title)
   end
 
   test "user can navigate to sign up" do
     visit logged_out_path
-    click_on 'Sign up'
+
+    LoggedOutPage.new(page).sign_up
 
     assert_equal('Sign Up - BookTradingClub', page.title)
   end
