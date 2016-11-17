@@ -20,6 +20,7 @@ class WantIndexTest < Capybara::Rails::TestCase
 
   test "displays information message if nothing wanted" do
     create_account_and_login
+
     ApplicationLayout.new.visit_want
 
     assert_equal('Want - BookTradingClub', page.title)
@@ -33,8 +34,7 @@ class WantIndexTest < Capybara::Rails::TestCase
     ApplicationLayout.new.visit_want
     WantsPage.new(page).select('Emma')
 
-    assert_equal('Show Want - BookTradingClub', page.title)
-    click_on('Withdraw Want')
+    WantShowPage.new(page).withdraw
 
     assert_equal('Want - BookTradingClub', page.title)
     page.must_have_content('Want withdrawn for Emma')
