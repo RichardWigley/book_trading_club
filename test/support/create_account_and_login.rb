@@ -21,7 +21,7 @@ def create_account_with_contact_and_login(page,
   # I wanted to create the contact at the same time as the account
   # but that hasn't worked out. So I visited the page and filled it
   # in instead.
-  Menu.new.visit_account
+  ApplicationLayout.new.visit_account
   click_on('user@example.com')
   ContactPage.new(page).fill(full_name: full_name,
                              address_line_1: address_line_1,

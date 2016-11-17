@@ -6,14 +6,14 @@ require 'test_helper'
 class AccountShowTest < Capybara::Rails::TestCase
   test "can display account" do
     create_account_and_login
-    Menu.new.visit_account
+    ApplicationLayout.new.visit_account
 
     assert_equal('Account - BookTradingClub', page.title)
   end
 
   test "can log out account" do
     create_account_and_login
-    Menu.new.visit_account
+    ApplicationLayout.new.visit_account
 
     AccountPage.new(page).logout
 
@@ -23,7 +23,7 @@ class AccountShowTest < Capybara::Rails::TestCase
 
   test "displays if no trades have occurred" do
     create_account_and_login
-    Menu.new.visit_account
+    ApplicationLayout.new.visit_account
 
     page.must_have_content('You have not made a trade. ' \
                            'When completed agreed trades will appear here.')

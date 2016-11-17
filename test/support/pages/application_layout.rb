@@ -1,11 +1,16 @@
-# Menu
+# ApplicationLayout
 #  - page object to act as abstraction away from Capybara
 #
-class Menu
+class ApplicationLayout
   include Capybara::DSL
 
   def visit_account
     click_on('Account', match: :first)
+    self
+  end
+
+  def visit_logo
+    click_on 'ROE'
     self
   end
 

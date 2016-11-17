@@ -4,7 +4,7 @@ class WantNewTest < Capybara::Rails::TestCase
   test "can make a want" do
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_with_contact_and_login(page)
-    Menu.new.visit_want
+    ApplicationLayout.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Create Want - BookTradingClub', page.title)
@@ -18,7 +18,7 @@ class WantNewTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login
 
-    Menu.new.visit_want
+    ApplicationLayout.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Complete Contact - BookTradingClub', page.title)
@@ -39,7 +39,7 @@ class WantNewTest < Capybara::Rails::TestCase
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_with_contact_and_login(page).offers.create(book: book)
 
-    Menu.new.visit_want
+    ApplicationLayout.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Create Want - BookTradingClub', page.title)

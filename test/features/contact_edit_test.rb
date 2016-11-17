@@ -7,7 +7,7 @@ class ContactEditTest < Capybara::Rails::TestCase
   test "can edit contact information" do
     create_account_and_login(email: 'user@example.com')
 
-    Menu.new.visit_account
+    ApplicationLayout.new.visit_account
     AccountPage.new(page).visit_contact(full_name: 'user@example.com')
 
     ContactPage.new(page).fill(full_name: 'Bo',
@@ -28,7 +28,7 @@ class ContactEditTest < Capybara::Rails::TestCase
   test "can return error message" do
     create_account_and_login(email: 'user@example.com')
 
-    Menu.new.visit_account
+    ApplicationLayout.new.visit_account
     AccountPage.new(page).visit_contact(full_name: 'user@example.com')
 
     ContactPage.new(page).fill(address_line_1: '',

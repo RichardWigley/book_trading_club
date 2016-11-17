@@ -5,7 +5,7 @@ class OfferNewTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login
 
-    Menu.new.visit_offer
+    ApplicationLayout.new.visit_offer
     OffersPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Make Offer - BookTradingClub', page.title)
@@ -18,7 +18,7 @@ class OfferNewTest < Capybara::Rails::TestCase
   test "errors are displayed" do
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login.wants.create(book: book)
-    Menu.new.visit_offer
+    ApplicationLayout.new.visit_offer
     OffersPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Make Offer - BookTradingClub', page.title)

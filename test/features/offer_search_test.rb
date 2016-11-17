@@ -5,7 +5,7 @@ class OfferSearchTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
 
     create_account_and_login
-    Menu.new.visit_offer
+    ApplicationLayout.new.visit_offer
 
     OffersPage.new(page).query('Aust').submit
 
@@ -16,7 +16,7 @@ class OfferSearchTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
 
     create_account_and_login
-    Menu.new.visit_offer
+    ApplicationLayout.new.visit_offer
 
     OffersPage.new(page).query('').submit
 
@@ -28,7 +28,7 @@ class OfferSearchTest < Capybara::Rails::TestCase
     Book.create(title: 'Emma', author: 'Jane Austin')
 
     create_account_and_login
-    Menu.new.visit_offer
+    ApplicationLayout.new.visit_offer
 
     OffersPage.new(page).query('Hobbit').submit
 
