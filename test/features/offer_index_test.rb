@@ -4,18 +4,16 @@ class OfferIndexTest < Capybara::Rails::TestCase
   test "greets visitor with action to perform" do
     create_account_and_login
     Menu.new.visit_offer
-
     assert_equal('Offer - BookTradingClub', page.title)
+
     page.must_have_content('Enter a search and the results appear here')
   end
 
   test "displays any offered books" do
-    account = create_account_and_login
     book = Book.create(title: 'Emma', author: 'Jane Austin')
-    Offer.create(book: book, account: account)
+    create_account_and_login.offers.create(book: book)
     Menu.new.visit_offer
 
-    assert_equal('Offer - BookTradingClub', page.title)
     page.must_have_content('Emma')
   end
 
@@ -23,7 +21,19 @@ class OfferIndexTest < Capybara::Rails::TestCase
     create_account_and_login
     Menu.new.visit_offer
 
-    assert_equal('Offer - BookTradingClub', page.title)
     page.must_have_content('You are not offering any books.')
+  end
+
+  test "it can withdraw an offer" do
+    book = Book.create(title: 'Emma', author: 'Jane Austin')
+    create_account_and_login.offers.create(book: book)
+    Menu.new.visit_offer
+    OffersPage.new(page).select('Emma')
+    assert_equal('Show Offer - BookTradingClub', page.title)
+
+    click_on('Withdraw Offer')
+
+    assert_equal('Offer - BookTradingClub', page.title)
+    page.must_have_content('Offer withdrawn for Emma')
   end
 end

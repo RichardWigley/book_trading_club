@@ -6,11 +6,7 @@ class OfferNewTest < Capybara::Rails::TestCase
     create_account_and_login
 
     Menu.new.visit_offer
-    assert_equal('Offer - BookTradingClub', page.title)
-
-    Search.new.query('Emma').submit
-
-    click_on('Emma')
+    OffersPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Make Offer - BookTradingClub', page.title)
     click_on('Make Offer')
@@ -20,16 +16,10 @@ class OfferNewTest < Capybara::Rails::TestCase
   end
 
   test "errors are displayed" do
-    account = create_account_and_login
     book = Book.create(title: 'Emma', author: 'Jane Austin')
-    Want.create(book: book, account: account)
-
+    create_account_and_login.wants.create(book: book)
     Menu.new.visit_offer
-    assert_equal('Offer - BookTradingClub', page.title)
-
-    Search.new.query('Emma').submit
-
-    click_on('Emma')
+    OffersPage.new(page).query('Emma').submit.select('Emma')
 
     assert_equal('Make Offer - BookTradingClub', page.title)
     click_on('Make Offer')
