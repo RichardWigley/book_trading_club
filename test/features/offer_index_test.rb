@@ -27,11 +27,11 @@ class OfferIndexTest < Capybara::Rails::TestCase
   test "it can withdraw an offer" do
     book = Book.create(title: 'Emma', author: 'Jane Austin')
     create_account_and_login.offers.create(book: book)
+
     Menu.new.visit_offer
     OffersPage.new(page).select('Emma')
-    assert_equal('Show Offer - BookTradingClub', page.title)
 
-    click_on('Withdraw Offer')
+    OfferShowPage.new(page).withdraw
 
     assert_equal('Offer - BookTradingClub', page.title)
     page.must_have_content('Offer withdrawn for Emma')
