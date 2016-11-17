@@ -39,7 +39,7 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Exclude:
     - 'app/controllers/contacts_controller.rb'
-    - 'test/support/contact_page.rb'
+    - 'test/support/pages/contact_page.rb'
     - 'test/support/create_account_and_login.rb'
 
 Metrics/ParameterLists:
