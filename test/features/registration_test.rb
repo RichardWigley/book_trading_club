@@ -15,11 +15,9 @@ class RegistrationTest < Capybara::Rails::TestCase
     visit root_path
     click_on 'Sign up'
 
-    assert_equal('Sign Up - BookTradingClub', page.title)
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'secret'
-    fill_in 'Password confirmation', with: 'secret'
-    click_on 'Sign up'
+    RegistrationPage.new(page).fill(email: 'user@example.com',
+                                    password: 'secret',
+                                    confirm: 'secret').sign_up
 
     assert_equal('Library - BookTradingClub', page.title)
     page.must_have_content('Welcome! You have signed up successfully.')
@@ -30,10 +28,10 @@ class RegistrationTest < Capybara::Rails::TestCase
   test "a guest cannot sign up without valid information" do
     visit root_path
     click_on 'Sign up'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: ''
-    fill_in 'Password confirmation', with: 'secret'
-    click_on 'Sign up'
+
+    RegistrationPage.new(page).fill(email: 'user@example.com',
+                                    password: '',
+                                    confirm: 'secret').sign_up
 
     assert_equal('Sign Up - BookTradingClub', page.title)
     page.must_have_content('errors prohibited this account from being saved')
