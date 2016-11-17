@@ -22,7 +22,7 @@ def create_account_with_contact_and_login(page,
   # but that hasn't worked out. So I visited the page and filled it
   # in instead.
   ApplicationLayout.new.visit_account
-  click_on('user@example.com')
+  AccountPage.new(page).visit_contact(full_name: 'user@example.com')
   ContactPage.new(page).fill(full_name: full_name,
                              address_line_1: address_line_1,
                              address_line_2: '',
