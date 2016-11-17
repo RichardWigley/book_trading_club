@@ -10,16 +10,16 @@ class ContactEditTest < Capybara::Rails::TestCase
     create_account_and_login(email: 'user@example.com')
 
     Menu.new.visit_account
-    assert_equal('Account - BookTradingClub', page.title)
+    AccountPage.new(page).visit_contact(full_name: 'user@example.com')
 
-    click_on('user@example.com')
     ContactPage.new(page).fill(full_name: 'Bo',
                                address_line_1: '8 Station Road',
                                address_line_2: 'Wickham',
                                town: 'Fareham',
                                county: 'Kent',
                                postcode: 'BR4 0PU').save
-
+    # TODO: Fix this to be visual assert and not using database
+    #
     assert_equal("Bo\n8 Station Road\nWickham\nFareham\nKent\nBR4 0PU",
                  Account.where(email: 'user@example.com').first.contact.to_s,
                  'Contact must be updated')
@@ -31,9 +31,8 @@ class ContactEditTest < Capybara::Rails::TestCase
     create_account_and_login(email: 'user@example.com')
 
     Menu.new.visit_account
-    assert_equal('Account - BookTradingClub', page.title)
+    AccountPage.new(page).visit_contact(full_name: 'user@example.com')
 
-    click_on('user@example.com')
     ContactPage.new(page).fill(address_line_1: '',
                                county: 'Kent').save
 

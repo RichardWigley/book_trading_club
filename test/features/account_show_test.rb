@@ -8,16 +8,16 @@ class AccountShowTest < Capybara::Rails::TestCase
 
   test "can display account" do
     create_account_and_login
-
     Menu.new.visit_account
+
     assert_equal('Account - BookTradingClub', page.title)
   end
 
   test "can log out account" do
     create_account_and_login
-
     Menu.new.visit_account
-    click_on 'Log out'
+
+    AccountPage.new(page).logout
 
     assert_equal('Log Out - BookTradingClub', page.title)
     page.must_have_content('Signed out successfully')
