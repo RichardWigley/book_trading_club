@@ -10,7 +10,8 @@ def create_account_and_login(email: 'user@example.com', password: 'secret')
   account
 end
 
-def create_account_with_contact_and_login(email: 'user@example.com',
+def create_account_with_contact_and_login(page,
+                                          email: 'user@example.com',
                                           password: 'secret',
                                           full_name: 'Bo',
                                           address_line_1: '8 Station Road',
@@ -22,11 +23,11 @@ def create_account_with_contact_and_login(email: 'user@example.com',
   # in instead.
   Menu.new.visit_account
   click_on('user@example.com')
-  ContactPage.new.fill(full_name: full_name,
-                       address_line_1: address_line_1,
-                       address_line_2: '',
-                       town: town,
-                       county: '',
-                       postcode: '').save
+  ContactPage.new(page).fill(full_name: full_name,
+                             address_line_1: address_line_1,
+                             address_line_2: '',
+                             town: town,
+                             county: '',
+                             postcode: '').save
   account
 end

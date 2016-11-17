@@ -3,7 +3,7 @@ require 'test_helper'
 class WantNewTest < Capybara::Rails::TestCase
   test "can make a want" do
     Book.create(title: 'Emma', author: 'Jane Austin')
-    create_account_with_contact_and_login
+    create_account_with_contact_and_login(page)
     Menu.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
@@ -24,10 +24,9 @@ class WantNewTest < Capybara::Rails::TestCase
     assert_equal('Complete Contact - BookTradingClub', page.title)
     click_on('Complete Contact Form')
 
-    assert_equal('Edit Contact - BookTradingClub', page.title)
-    ContactPage.new.fill(full_name: 'Bo',
-                         address_line_1: '8 Station Road',
-                         town: 'Fareham').save
+    ContactPage.new(page).fill(full_name: 'Bo',
+                               address_line_1: '8 Station Road',
+                               town: 'Fareham').save
 
     assert_equal('Create Want - BookTradingClub', page.title)
     click_on('Create Want')
@@ -38,7 +37,7 @@ class WantNewTest < Capybara::Rails::TestCase
 
   test "errors are displayed" do
     book = Book.create(title: 'Emma', author: 'Jane Austin')
-    create_account_with_contact_and_login.offers.create(book: book)
+    create_account_with_contact_and_login(page).offers.create(book: book)
 
     Menu.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')

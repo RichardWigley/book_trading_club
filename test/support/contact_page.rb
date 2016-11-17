@@ -3,6 +3,12 @@
 #
 class ContactPage
   include Capybara::DSL
+  EXPECTED_PAGE = 'Edit Contact - BookTradingClub'.freeze
+
+  def initialize(page)
+    @page = page
+    raise ArgumentError, error_message if EXPECTED_PAGE != page.title
+  end
 
   def fill(full_name: 'Bo',
            address_line_1: '8 Station Road',
@@ -22,5 +28,12 @@ class ContactPage
   def save
     click_on('Save and Continue')
     self
+  end
+
+  private
+
+  def error_message
+    "ContactPage is expected to be used on '#{EXPECTED_PAGE}' " \
+      "but is actually being used on '#{page.title}'"
   end
 end
