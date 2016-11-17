@@ -9,7 +9,7 @@ class SessionTest < Capybara::Rails::TestCase
   test "can log in" do
     Account.create(email: 'user@example.com', password: 'secret')
     visit root_path
-    click_on 'Log in'
+    CommonPagesLayout.new.login
 
     SessionPage.new(page).fill(email: 'user@example.com', password: 'secret').login
 
@@ -21,7 +21,7 @@ class SessionTest < Capybara::Rails::TestCase
 
   test "cannot log in without valid information" do
     visit root_path
-    click_on 'Log in'
+    CommonPagesLayout.new.login
 
     SessionPage.new(page).fill(email: 'user@example.com', password: 'secret').login
 
