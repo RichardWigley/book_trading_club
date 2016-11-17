@@ -19,13 +19,10 @@ class WantNewTest < Capybara::Rails::TestCase
     ApplicationLayout.new.visit_want
     WantsPage.new(page).query('Emma').submit.select('Emma')
 
-    assert_equal('Complete Contact - BookTradingClub', page.title)
-    click_on('Complete Contact Form')
-
+    CompleteContactPage.new(page).complete
     ContactPage.new(page).fill(full_name: 'Bo',
                                address_line_1: '8 Station Road',
                                town: 'Fareham').save
-
     WantNewPage.new(page).want
 
     assert_equal('Want - BookTradingClub', page.title)
