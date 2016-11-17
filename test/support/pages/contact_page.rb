@@ -33,7 +33,7 @@ class ContactPage
   private
 
   def error_message
-    "ContactPage is expected to be used on '#{EXPECTED_PAGE}' " \
+    "#{self.class} is expected to be used on '#{EXPECTED_PAGE}' " \
       "but is actually being used on '#{page.title}'"
   end
 end

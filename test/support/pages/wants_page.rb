@@ -29,12 +29,8 @@ class WantsPage
 
   private
 
-  def search
-    @search = Search.new
-  end
-
   def error_message
-    "WantsPage is expected to be used on '#{EXPECTED_PAGE}' " \
+    "#{self.class} is expected to be used on '#{EXPECTED_PAGE}' " \
       "but is actually being used on '#{page.title}'"
   end
 end
