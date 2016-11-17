@@ -11,10 +11,7 @@ class SessionTest < Capybara::Rails::TestCase
     visit root_path
     click_on 'Log in'
 
-    assert_equal('Log In - BookTradingClub', page.title)
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'secret'
-    click_on 'Log in'
+    SessionPage.new(page).fill(email: 'user@example.com', password: 'secret').login
 
     assert_equal('Library - BookTradingClub', page.title)
     page.must_have_content('Signed in successfully.')
@@ -25,9 +22,8 @@ class SessionTest < Capybara::Rails::TestCase
   test "cannot log in without valid information" do
     visit root_path
     click_on 'Log in'
-    fill_in 'Email', with: 'user@example.com'
-    fill_in 'Password', with: 'secret'
-    click_on 'Log in'
+
+    SessionPage.new(page).fill(email: 'user@example.com', password: 'secret').login
 
     assert_equal('Log In - BookTradingClub', page.title)
     page.must_have_content('Invalid Email or password.')
