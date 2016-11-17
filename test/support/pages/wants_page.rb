@@ -1,15 +1,9 @@
 # WantsPage
 #  - page object to act as abstraction away from Capybara
 #
-class WantsPage
-  extend Forwardable
-  include Capybara::DSL
-  EXPECTED_PAGE = 'Want - BookTradingClub'.freeze
-  attr_reader :page
-
+class WantsPage < BasePage
   def initialize(page)
-    @page = page
-    raise ArgumentError, error_message if EXPECTED_PAGE != page.title
+    super(page, expected_title: 'Want')
   end
 
   def query(text)
@@ -25,12 +19,5 @@ class WantsPage
   def select(text)
     click_on(text)
     self
-  end
-
-  private
-
-  def error_message
-    "#{self.class} is expected to be used on '#{EXPECTED_PAGE}' " \
-      "but is actually being used on '#{page.title}'"
   end
 end

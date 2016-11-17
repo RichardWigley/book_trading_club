@@ -1,13 +1,9 @@
 # ContactPage
 #  - page object to act as abstraction away from Capybara
 #
-class ContactPage
-  include Capybara::DSL
-  EXPECTED_PAGE = 'Edit Contact - BookTradingClub'.freeze
-
+class ContactPage < BasePage
   def initialize(page)
-    @page = page
-    raise ArgumentError, error_message if EXPECTED_PAGE != page.title
+    super(page, expected_title: 'Edit Contact')
   end
 
   def fill(full_name: 'Bo',
@@ -28,12 +24,5 @@ class ContactPage
   def save
     click_on('Save and Continue')
     self
-  end
-
-  private
-
-  def error_message
-    "#{self.class} is expected to be used on '#{EXPECTED_PAGE}' " \
-      "but is actually being used on '#{page.title}'"
   end
 end

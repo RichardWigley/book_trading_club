@@ -1,13 +1,9 @@
 # SessionPage
 #  - page object to act as abstraction away from Capybara
 #
-class SessionPage
-  include Capybara::DSL
-  EXPECTED_PAGE = 'Log In - BookTradingClub'.freeze
-
+class SessionPage < BasePage
   def initialize(page)
-    @page = page
-    raise ArgumentError, error_message if EXPECTED_PAGE != page.title
+    super(page, expected_title: 'Log In')
   end
 
   def fill(email: 'user@example.com', password: 'secret')
@@ -19,12 +15,5 @@ class SessionPage
   def login
     click_on('Log in')
     self
-  end
-
-  private
-
-  def error_message
-    "#{self.class} is expected to be used on '#{EXPECTED_PAGE}' " \
-      "but is actually being used on '#{page.title}'"
   end
 end

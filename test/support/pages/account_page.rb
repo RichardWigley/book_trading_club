@@ -1,13 +1,11 @@
+require_relative 'base_page'
+
 # AccountPage
 #  - page object to act as abstraction away from Capybara
 #
-class AccountPage
-  include Capybara::DSL
-  EXPECTED_PAGE = 'Account - BookTradingClub'.freeze
-
+class AccountPage < BasePage
   def initialize(page)
-    @page = page
-    raise ArgumentError, error_message if EXPECTED_PAGE != page.title
+    super(page, expected_title: 'Account')
   end
 
   def visit_contact(full_name:)
@@ -17,12 +15,5 @@ class AccountPage
 
   def logout
     click_on 'Log out'
-  end
-
-  private
-
-  def error_message
-    "#{self.class} is expected to be used on '#{EXPECTED_PAGE}' " \
-      "but is actually being used on '#{page.title}'"
   end
 end
