@@ -8,8 +8,7 @@ class WantNewTest < Capybara::Rails::TestCase
     Menu.new.visit_want
     assert_equal('Want - BookTradingClub', page.title)
 
-    fill_in 'search', with: 'Emma'
-    click_on 'Search'
+    Search.new.query('Emma').submit
 
     click_on('Emma')
 
@@ -27,8 +26,7 @@ class WantNewTest < Capybara::Rails::TestCase
     Menu.new.visit_want
     assert_equal('Want - BookTradingClub', page.title)
 
-    fill_in 'search', with: 'Emma'
-    click_on 'Search'
+    Search.new.query('Emma').submit
 
     click_on('Emma')
 
@@ -55,8 +53,7 @@ class WantNewTest < Capybara::Rails::TestCase
     Menu.new.visit_want
     assert_equal('Want - BookTradingClub', page.title)
 
-    fill_in 'search', with: 'Emma'
-    click_on 'Search'
+    Search.new.query('Emma').submit
 
     click_on('Emma')
 

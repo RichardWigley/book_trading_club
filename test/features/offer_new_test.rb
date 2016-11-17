@@ -8,8 +8,7 @@ class OfferNewTest < Capybara::Rails::TestCase
     Menu.new.visit_offer
     assert_equal('Offer - BookTradingClub', page.title)
 
-    fill_in 'search', with: 'Emma'
-    click_on 'Search'
+    Search.new.query('Emma').submit
 
     click_on('Emma')
 
@@ -28,8 +27,7 @@ class OfferNewTest < Capybara::Rails::TestCase
     Menu.new.visit_offer
     assert_equal('Offer - BookTradingClub', page.title)
 
-    fill_in 'search', with: 'Emma'
-    click_on 'Search'
+    Search.new.query('Emma').submit
 
     click_on('Emma')
 
