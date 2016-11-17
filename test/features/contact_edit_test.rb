@@ -4,8 +4,6 @@ require 'test_helper'
 #  - account's contact information
 #
 class ContactEditTest < Capybara::Rails::TestCase
-  # success
-
   test "can edit contact information" do
     create_account_and_login(email: 'user@example.com')
 

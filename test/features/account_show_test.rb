@@ -4,8 +4,6 @@ require 'test_helper'
 #  - user's account information
 #
 class AccountShowTest < Capybara::Rails::TestCase
-  # success
-
   test "can display account" do
     create_account_and_login
     Menu.new.visit_account
