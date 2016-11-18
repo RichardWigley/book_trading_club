@@ -21,6 +21,7 @@ class OfferTest < ActiveSupport::TestCase
   test "invalid if we already want the book" do
     account = account_create
     account.wants.create(book: book)
+
     offer = account.offers.build(book: book)
 
     refute offer.valid?, 'Must be invalid if we already want the book'

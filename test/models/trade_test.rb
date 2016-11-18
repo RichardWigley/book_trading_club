@@ -14,12 +14,8 @@ require "test_helper"
 class TradeTest < ActiveSupport::TestCase
   def setup
     book = Book.new(title: 'Emma', author: 'Jane Austin')
-    offer_account = account_create(email: 'offering@example.com')
-    offer = Offer.new(account: offer_account, book: book)
-
-    want_account = account_create(email: 'wanting@example.com')
-    want = Want.new(account: want_account, book: book)
-
+    offer = account_create(email: 'offering@example.com').offers.create(book: book)
+    want = account_create(email: 'wanting@example.com').wants.create(book: book)
     @trade = Trade.new(offer: offer, want: want)
   end
 
@@ -29,12 +25,14 @@ class TradeTest < ActiveSupport::TestCase
 
   test "is invalid without offer" do
     @trade.offer = nil
+
     refute @trade.valid?
     assert_not_nil @trade.errors[:offer], 'no validation error for offer present'
   end
 
   test "is invalid without wants" do
     @trade.want = nil
+
     refute @trade.valid?
     assert_not_nil @trade.errors[:want], 'no validation error for want present'
   end
