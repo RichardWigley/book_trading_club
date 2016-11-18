@@ -7,6 +7,7 @@ class BuildWantTradeTest < ActiveSupport::TestCase
     account_create(email: 'offering@example.com').offers.create(book: book)
 
     @want = BuildWantTrade.new(want: want).build
+
     assert @want.valid?
     assert_not_nil @want.trade
   end
@@ -15,6 +16,7 @@ class BuildWantTradeTest < ActiveSupport::TestCase
     want = account_create(email: 'wanting@example.com').wants.build(book: book)
 
     @want = BuildWantTrade.new(want: want).build
+
     assert @want.valid?
     assert_nil @want.trade
   end
