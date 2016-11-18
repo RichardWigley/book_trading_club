@@ -44,9 +44,7 @@ UtilityFunction:
   exclude:
   - ApplicationHelper#show_errors
   - Authorize
-  - OfferTest#account_create
-  - TradeTest#account_create
-  - WantTest#account_create
+  - account_create
 
 TooManyStatements:
   exclude:

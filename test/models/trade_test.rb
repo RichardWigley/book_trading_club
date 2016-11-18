@@ -12,6 +12,7 @@
 require "test_helper"
 
 class TradeTest < ActiveSupport::TestCase
+  include Factory
   def setup
     book = Book.new(title: 'Emma', author: 'Jane Austin')
     offer = account_create(email: 'offering@example.com').offers.create(book: book)
@@ -35,12 +36,5 @@ class TradeTest < ActiveSupport::TestCase
 
     refute @trade.valid?
     assert_not_nil @trade.errors[:want], 'no validation error for want present'
-  end
-
-  def account_create(email: 'user@example.com', password: 'password')
-    Account.find_or_create_by(email: email) do |acc|
-      acc.password = password
-      acc.password_confirmation = password
-    end
   end
 end

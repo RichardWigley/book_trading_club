@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class BuildWantTradeTest < ActiveSupport::TestCase
+  include Factory
   test 'builds a trade when book also offered' do
     want = account_create(email: 'wanting@example.com').wants.build(book: book)
     account_create(email: 'offering@example.com').offers.create(book: book)
@@ -16,13 +17,6 @@ class BuildWantTradeTest < ActiveSupport::TestCase
     @want = BuildWantTrade.new(want: want).build
     assert @want.valid?
     assert_nil @want.trade
-  end
-
-  def account_create(email: 'user@example.com', password: 'password')
-    Account.find_or_create_by(email: email) do |acc|
-      acc.password = password
-      acc.password_confirmation = password
-    end
   end
 
   def book

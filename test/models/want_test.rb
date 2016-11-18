@@ -12,6 +12,7 @@
 require "test_helper"
 
 class WantTest < ActiveSupport::TestCase
+  include Factory
   test "valid if we do not offer the book" do
     want = account_create.wants.build(book: book)
 
@@ -40,13 +41,6 @@ class WantTest < ActiveSupport::TestCase
     Trade.create(offer: offer, want: want)
 
     assert Want.untraded.to_a.empty?
-  end
-
-  def account_create(email: 'user@example.com', password: 'password')
-    Account.find_or_create_by(email: email) do |acc|
-      acc.password = password
-      acc.password_confirmation = password
-    end
   end
 
   def book
