@@ -16,7 +16,7 @@ class OffersController < ApplicationController
 
   def new
     book = Book.find(params[:book_id])
-    @offer = Offer.new(account: current_account, book: book)
+    @offer = BuildOfferTrade.new(offer: Offer.new(account: current_account, book: book)).build.offer
     authorize @offer
   end
 

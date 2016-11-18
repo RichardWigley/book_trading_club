@@ -1,6 +1,18 @@
 <% content_for :title, 'Make Offer' %>
 <h1 class='headings--compressed'>New Offer</h1>
 
+<section class='layout__site__content list'>
+  <div class='list__card  list__card--primary-light'>
+  <% if @offer.close? %>
+    <h2 class='headings--compressed'>Book is available</h1>
+    <p>The book is currently wanted. If you 'create' the offer the trade will complete immediately.</p>
+  <% else %>
+    <h2 class='headings--compressed'>There is a wait</h1>
+    <p>The book is currently not wanted - don't take it personally, we're a small book store. 'create' the offer and wait for someone to want it.</p>
+  <% end %>
+  </div>
+</section>
+
 <%= @offer.book.title %><br>
 <%= @offer.book.author %>
 <%= form_for(@offer, url: book_offers_path, method: 'post') do %>
