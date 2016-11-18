@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20161114142432) do
   end
 
   create_table "wants", force: :cascade do |t|
-    t.integer  "book_id"
     t.integer  "account_id"
+    t.integer  "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_wants_on_account_id", using: :btree
