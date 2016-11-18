@@ -20,6 +20,6 @@ class BuildWantTrade
   private
 
   def offer
-    @offer ||= Offer.by_book(want.book)
+    @offer ||= Offer.untraded.by_book(want.book)
   end
 end
