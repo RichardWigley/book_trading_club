@@ -16,7 +16,7 @@ class WantsController < ApplicationController
 
   def new
     book = Book.find(params[:book_id])
-    @want = Want.new(account: current_account, book: book)
+    @want = BuildWantTrade.new(want: Want.new(account: current_account, book: book)).build.want
     if current_account.completed?
       session[:book_wanted] = nil
     else

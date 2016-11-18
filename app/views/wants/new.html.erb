@@ -1,6 +1,18 @@
 <% content_for :title, 'Create Want' %>
 <h1 class='headings--compressed'>Create Want</h1>
 
+<section class='layout__site__content list'>
+  <div class='list__card  list__card--primary-light'>
+  <% if @want.close? %>
+    <h2 class='headings--compressed'>Book is available</h1>
+    <p>The book is currently on offer. If you 'create' the want the trade will complete immediately.</p>
+  <% else %>
+    <h2 class='headings--compressed'>There is a wait</h1>
+    <p>The book is currently not on offer. 'create' the want and wait for someone to offer it. Good things come to those who wait.</p>
+  <% end %>
+  </div>
+</section>
+
 <%= @want.book.title %><br>
 <%= @want.book.author %>
 
