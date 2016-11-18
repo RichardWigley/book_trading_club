@@ -29,6 +29,20 @@ class WantTest < ActiveSupport::TestCase
                     'Must be invalid for already offering the book'
   end
 
+  test "#close? true when there is a likely trade available" do
+    offer = account_create.offers.build(book: book)
+    want = account_create.wants.build(book: book)
+    want.trade = Trade.new(offer: offer, want: want)
+
+    assert want.close?, 'Want with trade is closable'
+  end
+
+  test "#close? false when there is no likely trade available" do
+    want = account_create.wants.build(book: book)
+
+    refute want.close?, 'Want without trade is not closeable'
+  end
+
   test ".untraded scope returns wants without trades" do
     offer = account_create(email: 'offer@example.com').wants.create(book: book)
 

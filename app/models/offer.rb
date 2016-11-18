@@ -18,6 +18,10 @@ class Offer < ApplicationRecord
   belongs_to :book
   validate :account_already_wants_book
 
+  def close?
+    trade.present?
+  end
+
   def account_already_wants_book
     return if account.wants.by_book(book).empty?
 
