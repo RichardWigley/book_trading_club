@@ -1,5 +1,5 @@
 <% content_for :title, 'Edit Contact' %>
-<h1 class='heading--compressed'>Edit Account</h1>
+<h1 class='heading--compressed'>Edit Contact</h1>
 
 <%= form_for(@contact, url: contact_path, method: 'patch') do |f| %>
   <%= render('form_errors', object: @contact) if @contact.errors.any? %>
