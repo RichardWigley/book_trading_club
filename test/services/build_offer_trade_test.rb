@@ -21,7 +21,10 @@ class BuildOfferTradeTest < ActiveSupport::TestCase
   end
 
   def account_create(email: 'user@example.com', password: 'password')
-    Account.create(email: email, password: password, password_confirmation: password)
+    Account.find_or_create_by(email: email) do |acc|
+      acc.password = password
+      acc.password_confirmation = password
+    end
   end
 
   def book
