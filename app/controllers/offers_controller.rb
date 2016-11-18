@@ -21,7 +21,7 @@ class OffersController < ApplicationController
   end
 
   def create
-    @offer = BuildOfferTrade.new(offer: current_account.offers.build(book_id: params[:book_id])).build
+    @offer = BuildOfferTrade.new(offer: current_account.offers.build(book_id: params[:book_id])).build.offer
     if @offer.save
       redirect_to offers_path, notice: "#{@offer.book.title}, has been offered"
     else

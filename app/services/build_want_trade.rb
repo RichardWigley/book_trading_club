@@ -14,7 +14,7 @@ class BuildWantTrade
       trade.want = want
       trade.offer = offer.first
     end
-    want
+    self
   end
 
   private
