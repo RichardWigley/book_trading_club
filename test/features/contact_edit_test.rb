@@ -15,13 +15,9 @@ class ContactEditTest < Capybara::Rails::TestCase
                                town: 'Fareham',
                                county: 'Kent',
                                postcode: 'BR4 0PU').save
-    # TODO: Fix this to be visual assert and not using database
-    #
-    assert_equal("Bo\n8 Station Road\nWickham\nFareham\nKent\nBR4 0PU",
-                 Account.where(email: 'user@example.com').first.contact.to_s,
-                 'Contact must be updated')
 
     assert_equal('Account - BookTradingClub', page.title)
+    page.must_have_content("Bo\n8 Station Road\nWickham\nFareham\nKent\nBR4 0PU")
   end
 
   test "can return error message" do

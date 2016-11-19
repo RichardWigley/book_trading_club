@@ -7,12 +7,23 @@
 <section class='layout__site__content list  u-margin-bottom'>
   <h2 class='headings--compressed'>Contact</h1>
   <div class='list__card  list__card--primary-light'>
-    <%= link_to edit_contact_path(@account.contact) do %>
-      <div class="grid grid--gutters">
-        <div class="grid__cell">
-          <%= @account.email %>
+    <%= link_to edit_contact_path(@account.contact), class: 'list__card__link--text' do %>
+        <div class="grid grid--gutters">
+          <div class="grid__cell">
+            Email
+          </div>
+          <div class="grid__cell">
+            <%= @account.email %>
+          </div>
         </div>
-      </div>
+        <div class="grid grid--gutters">
+          <div class="grid__cell">
+            Address
+          </div>
+          <div class="grid__cell">
+            <%= simple_format(@account.contact.to_s, {}, wrapper_tag: 'div') %>
+          </div>
+        </div>
     <% end %>
   </div>
 </section>
