@@ -1,5 +1,5 @@
 <div class='menu'>
-  <%= active_link_to accounts_show_path(current_account), class: 'menu__link', class_active: 'menu__link--active' do %>
+  <%= active_link_to accounts_show_path(current_account), class: 'menu__link', class_active: 'menu__link--active', active: [['accounts', 'contacts']] do %>
     <div class='menu__item'>
       <%= fa_icon 'user' %>
       Account
