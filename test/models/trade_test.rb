@@ -28,13 +28,15 @@ class TradeTest < ActiveSupport::TestCase
     @trade.offer = nil
 
     refute @trade.valid?
-    assert_not_nil @trade.errors[:offer], 'no validation error for offer present'
+    assert_includes @trade.errors[:offer], "can't be blank",
+                    'no validation error for offer present'
   end
 
   test "is invalid without wants" do
     @trade.want = nil
 
     refute @trade.valid?
-    assert_not_nil @trade.errors[:want], 'no validation error for want present'
+    assert_includes @trade.errors[:want], "can't be blank",
+                    'no validation error for want present'
   end
 end
