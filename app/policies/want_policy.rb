@@ -7,18 +7,18 @@ class WantPolicy < ApplicationPolicy
   end
 
   def new?
-    resource.account_id == account.id
+    resource.account == account
   end
 
   def create?
-    resource.account_id == account.id
+    resource.account == account
   end
 
   def show?
-    resource.account_id == account.id
+    resource.account == account
   end
 
   def destroy?
-    resource.account_id == account.id
+    resource.account == account
   end
 end

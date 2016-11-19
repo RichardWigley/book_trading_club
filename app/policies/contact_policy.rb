@@ -3,10 +3,10 @@
 #
 class ContactPolicy < ApplicationPolicy
   def edit?
-    account
+    resource.account == account
   end
 
   def update?
-    account
+    resource.account == account
   end
 end

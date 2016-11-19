@@ -3,6 +3,6 @@
 #
 class AccountPolicy < ApplicationPolicy
   def show?
-    account
+    resource == account
   end
 end

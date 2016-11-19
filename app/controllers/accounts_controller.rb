@@ -9,6 +9,6 @@ class AccountsController < ApplicationController
   def show
     @account = current_account
     @trades = []
-    authorize Account
+    authorize @account
   end
 end
