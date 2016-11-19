@@ -11,15 +11,4 @@ class AccountsController < ApplicationController
     @trades = []
     authorize Account
   end
-
-  def edit
-    @account = Account.find(params[:id])
-    authorize @account
-  end
-
-  def update
-    @account = Account.find(params[:id])
-    redirect_to accounts_show_path
-    authorize @account
-  end
 end
