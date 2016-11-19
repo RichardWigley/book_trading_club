@@ -10,7 +10,7 @@ module ApplicationHelper
     style = MESSAGES[flash_key.to_sym]
     content_tag :div, class: 'js-slow-time ' + style.css do
       content_tag :div, class: 'layout__w-wrapper' do
-        content_tag(:span, fa_icon(style.icon, text: msg))
+        fa_icon(style.icon) + content_tag(:span, msg, class: 'u-padding-left-small')
       end
     end
   end
