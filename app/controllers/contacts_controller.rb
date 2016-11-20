@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   after_action :verify_authorized
 
   def edit
-    @contact = Contact.find(params[:id])
+    @contact = Contact.includes(:account).find(params[:id])
     authorize @contact
   end
 
