@@ -12,16 +12,18 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  test "title is required" do
-    book = Book.new(title: '', author: 'example')
+  # validates presence
+  #
+  [:author, :title].each do |method_name|
+    test "##{method_name} is required" do
+      @book = Book.new(title: 'Emma', author: 'Jane Austin')
 
-    assert_not book.valid?
-  end
+      @book.public_send("#{method_name}=", nil)
 
-  test "author is required" do
-    book = Book.new(title: 'example', author: '')
-
-    assert_not book.valid?
+      refute @book.valid?
+      assert_includes @book.errors[method_name], "can't be blank",
+                      "no validation error for #{method_name} present"
+    end
   end
 
   # search_for

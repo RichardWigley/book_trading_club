@@ -24,19 +24,13 @@ class TradeTest < ActiveSupport::TestCase
     assert @trade.valid?
   end
 
-  test "is invalid without offer" do
-    @trade.offer = nil
+  [:offer, :want].each do |method_name|
+    test "##{method_name} is required" do
+      @trade.public_send("#{method_name}=", nil)
 
-    refute @trade.valid?
-    assert_includes @trade.errors[:offer], "can't be blank",
-                    'no validation error for offer present'
-  end
-
-  test "is invalid without wants" do
-    @trade.want = nil
-
-    refute @trade.valid?
-    assert_includes @trade.errors[:want], "can't be blank",
-                    'no validation error for want present'
+      refute @trade.valid?
+      assert_includes @trade.errors[method_name], "can't be blank",
+                      "no validation error for #{method_name} present"
+    end
   end
 end

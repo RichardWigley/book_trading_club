@@ -13,13 +13,13 @@ require "test_helper"
 
 class OfferTest < ActiveSupport::TestCase
   include Factory
-  test "valid if we do not want the book" do
+  test "#account_already_wants_book - valid if we do not want the book" do
     offer = account_create.offers.build(book: book)
 
     assert offer.valid?, 'Must be valid if we do not want the book'
   end
 
-  test "invalid if we already want the book" do
+  test "#account_already_wants_book - invalid if we already want the book" do
     account = account_create
     account.wants.create(book: book)
 

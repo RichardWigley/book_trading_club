@@ -13,13 +13,13 @@ require "test_helper"
 
 class WantTest < ActiveSupport::TestCase
   include Factory
-  test "valid if we do not offer the book" do
+  test "#account_already_offers_book - valid if we do not offer the book" do
     want = account_create.wants.build(book: book)
 
     assert want.valid?, 'Must be valid if we do not already offer the book'
   end
 
-  test "invalid if we already offer the book" do
+  test "#account_already_offers_book - invalid if we already offer the book" do
     account = account_create
     account.offers.create(book: book)
     want = account.wants.build(book: book)
@@ -29,7 +29,7 @@ class WantTest < ActiveSupport::TestCase
                     'Must be invalid for already offering the book'
   end
 
-  test "#close? true when there is a likely trade available" do
+  test "#close? - true when there is a likely trade available" do
     offer = account_create.offers.build(book: book)
     want = account_create.wants.build(book: book)
     want.trade = Trade.new(offer: offer, want: want)
@@ -37,7 +37,7 @@ class WantTest < ActiveSupport::TestCase
     assert want.close?, 'Want with trade is closable'
   end
 
-  test "#close? false when there is no likely trade available" do
+  test "#close? - false when there is no likely trade available" do
     want = account_create.wants.build(book: book)
 
     refute want.close?, 'Want without trade is not closeable'

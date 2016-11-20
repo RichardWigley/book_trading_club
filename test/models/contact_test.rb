@@ -17,65 +17,46 @@
 require "test_helper"
 
 class ContactTest < ActiveSupport::TestCase
-  def setup
-    @contact ||= Contact.new(full_name: 'Bo', address_line_1: '8 Station Road', town: 'London')
+  test "#valid?" do
+    contact ||= Contact.new(full_name: 'Bo', address_line_1: '8 Station Road', town: 'London')
+
+    assert contact.valid?
   end
 
-  test "valid" do
-    assert @contact.valid?
+  # validates presence
+  #
+  [:full_name, :address_line_1, :town].each do |method_name|
+    test "##{method_name} is optional outside complete_contact" do
+      contact = Contact.new(full_name: 'Bo', address_line_1: '8 Station Rd', town: 'London')
+
+      contact.public_send("#{method_name}=", nil)
+
+      assert contact.valid?
+    end
+
+    test "##{method_name} is required for complete_contact" do
+      contact = Contact.new(full_name: 'Bo', address_line_1: '8 Station Rd', town: 'London')
+
+      contact.public_send("#{method_name}=", nil)
+
+      refute contact.valid?(:complete_contact)
+      assert_includes contact.errors[method_name], "can't be blank",
+                      "no validation error for #{method_name} present"
+    end
   end
 
-  test "full name line optional outside complete_contact" do
-    @contact.full_name = nil
-    assert @contact.valid?
+  test "#completed? is true when minimum contact information filled in" do
+    contact = Contact.new(full_name: 'Bo', address_line_1: '8 Station Road', town: 'London')
+
+    assert true, contact.completed?
   end
 
-  test "full name required by complete_contact" do
-    @contact.full_name = nil
+  test "#completed? is false when contact information is missing" do
+    contact = Contact.new(full_name: 'Bo', address_line_1: '8 Station Road', town: 'London')
 
-    refute @contact.valid?(:complete_contact)
+    contact.town = nil
 
-    assert_includes @contact.errors[:full_name], "can't be blank",
-                    'Must be invalid when missing full name'
-  end
-
-  test "first address line optional outside complete_contact" do
-    @contact.address_line_1 = nil
-
-    assert @contact.valid?
-  end
-
-  test "first address line required by complete_contact" do
-    @contact.address_line_1 = nil
-
-    refute @contact.valid?(:complete_contact)
-
-    assert_includes @contact.errors[:address_line_1], "can't be blank",
-                    'Must be invalid when missing address_line_1'
-  end
-
-  test "town optional outside complete_contact" do
-    @contact.town = nil
-
-    assert @contact.valid?
-  end
-
-  test "town required by complete_contact" do
-    @contact.town = nil
-
-    refute @contact.valid?(:complete_contact)
-    assert_includes @contact.errors[:town], "can't be blank",
-                    'Must be invalid when missing town'
-  end
-
-  test "completed? is true when minimum contact information filled in" do
-    assert true, @contact.completed?
-  end
-
-  test "completed? is false when contact information is missing" do
-    @contact.town = nil
-
-    refute @contact.completed?
+    refute contact.completed?
   end
 
   test "#to_s returns all lines" do
