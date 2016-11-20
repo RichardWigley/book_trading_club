@@ -19,6 +19,11 @@ class ApplicationLayout
     self
   end
 
+  def visit_trades
+    click_on('Trades', match: :first)
+    self
+  end
+
   def visit_want
     click_on('Want', match: :first)
     self

@@ -1,0 +1,30 @@
+<% content_for :title, "Trades" %>
+<h1 class='headings--compressed'>Trades</h1>
+
+<section class='layout__site__content list'>
+  <div class='list__card  list__card--primary-light'>
+    <div class="grid grid--gutters">
+      <div class="grid__cell">
+        Title
+      </div>
+      <div class="grid__cell">
+        Author
+      </div>
+    </div>
+    <% @trades.each do |want|  %>
+      <%= link_to want_path(want) do %>
+        <div class="grid grid--gutters">
+          <div class="grid__cell">
+            <%= trade.book.title %>
+          </div>
+          <div class="grid__cell">
+            <%= trade.book.author %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% if @trades.empty? %>
+     <p>You have not made a trade. When completed agreed trades will appear here.</p>
+    <% end %>
+  </div>
+</section>

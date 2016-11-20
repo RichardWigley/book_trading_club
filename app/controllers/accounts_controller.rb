@@ -8,7 +8,6 @@ class AccountsController < ApplicationController
 
   def show
     @account = current_account
-    @trades = []
     authorize @account
   end
 end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   resources :offers, only: [:index, :show, :destroy]
   resources :wants, only: [:index, :show, :destroy]
+  resources :trades, only: [:index]
 
   devise_for :accounts
 end
