@@ -6,11 +6,11 @@
 }
 
 .message--notice {
-  background: $color-status-neutral;
+  background-color: $color-status-neutral;
   border: 1px solid darken($color-status-neutral, 5%);
 }
 
 .message--alert {
-  background: $color-status-bad;
+  background-color: $color-status-bad;
   border: 1px solid darken($color-status-bad, 5%);
 }
