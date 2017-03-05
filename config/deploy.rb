@@ -39,6 +39,7 @@ set :branch, ENV['REVISION'] || ENV['BRANCH_NAME']
 
 #
 # shared directories
+#  - puma requires tmp/pids, tmp/sockets, log - see capistrano-puma config
 #
 set :linked_dirs, %w(tmp/pids tmp/sockets log)
 
