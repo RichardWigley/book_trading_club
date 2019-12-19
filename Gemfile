@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise', '~> 4.2.0'
+gem 'devise', '~> 4.7.1'
 gem 'font-awesome-rails', '~> 4.7.0.0'
 gem 'pundit', git: 'git://github.com/elabs/pundit.git'
 gem 'active_link_to', '~> 1.0.0'
